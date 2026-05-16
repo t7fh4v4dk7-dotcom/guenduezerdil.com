@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gündüz Erdil — Creative Director</title>
+<meta name="description" content="Creative Director aus Berlin. Ich finde heraus was Ihr Unternehmen wirklich braucht — bevor wir anfangen. Strategie, Konzept, Umsetzung.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Gündüz Erdil — Creative Director">
+<meta property="og:description" content="Vielleicht brauchst du gar keine Kampagne. Ich finde heraus was wirklich fehlt.">
+<meta property="og:url" content="https://guenduezerdil.com">
+<meta property="og:type" content="website">
+
+<style>
+  /* ——— Reset ——— */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#000;color:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  html{scroll-behavior:smooth}
+  body{
+    font-family: "Helvetica Neue","Helvetica","Arial","Liberation Sans",sans-serif;
+    font-weight: 400;
+    font-feature-settings: "kern" 1, "ss01" 1;
+    line-height: 1.4;
+    overflow-x: hidden;
+    cursor: default;
+  }
+  ::selection{background:#fff;color:#000}
+  a{color:inherit;text-decoration:none}
+
+  /* ——— Layout grid ——— */
+  .wrap{
+    --pad: clamp(20px, 4vw, 64px);
+    padding-left: var(--pad);
+    padding-right: var(--pad);
+  }
+
+  /* ——— Nav ——— */
+  nav.top{
+    position: fixed; top: 0; left: 0; right: 0;
+    display:flex; justify-content: space-between; align-items: center;
+    padding: 28px clamp(20px, 4vw, 64px);
+    z-index: 50;
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
+  nav.top > *{ pointer-events: auto; }
+  nav.top .name,
+  nav.top .contact{
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: #fff;
+  }
+  nav.top .name .dot{
+    display:inline-block;
+    width:6px;height:6px;border-radius:50%;
+    background:#fff;
+    margin-right:10px;vertical-align: 2px;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  nav.top .name:hover .dot{ transform: scale(2.2); }
+  nav.top .contact{position:relative}
+  nav.top .contact::after{
+    content:""; position:absolute; left:0; right:0; bottom:-4px;
+    height:1px; background:#fff;
+    transform: scaleX(0); transform-origin: right center;
+    transition: transform .5s cubic-bezier(.2,.7,.2,1);
+  }
+  nav.top .contact:hover::after{ transform: scaleX(1); transform-origin: left center; }
+
+  /* ——— Hero ——— */
+  section.hero{
+    min-height: 100vh;
+    padding-top: clamp(140px, 22vh, 220px);
+    padding-bottom: clamp(60px, 10vh, 120px);
+    display:flex; flex-direction: column; justify-content: space-between;
+    position:relative;
+  }
+
+  .eyebrow{
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6e6e6e;
+    margin-bottom: clamp(40px, 7vh, 80px);
+    display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow .bar{
+    display:inline-block; width:48px; height:1px; background:#6e6e6e;
+  }
+
+  h1.headline{
+    font-size: clamp(48px, 11.2vw, 196px);
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    font-weight: 500;
+    max-width: 16ch;
+    text-wrap: balance;
+  }
+  h1.headline .period{
+    color:#fff;
+    display:inline-block;
+    transform: translateY(0.02em);
+  }
+
+  .sub{
+    margin-top: clamp(32px, 5vh, 56px);
+    max-width: 38ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.55;
+    color: #a8a8a8;
+    letter-spacing: -0.005em;
+  }
+
+  .cta-line{
+    margin-top: clamp(40px, 6vh, 72px);
+    display:inline-flex; align-items:center; gap: 14px;
+    font-size: clamp(15px, 1.2vw, 18px);
+    color: #fff;
+    position:relative;
+  }
+  .cta-line .arrow{
+    display:inline-block;
+    width: 22px; height: 1px; background:#fff;
+    position:relative;
+    transition: width .45s cubic-bezier(.2,.7,.2,1);
+  }
+  .cta-line .arrow::after{
+    content:""; position:absolute; right:0; top:-3px;
+    width:7px; height:7px;
+    border-top:1px solid #fff; border-right:1px solid #fff;
+    transform: rotate(45deg);
+  }
+  .cta-line:hover .arrow{ width: 64px; }
+  .cta-line .label{
+    position:relative; display:inline-block; padding-bottom:2px;
+    background-image: linear-gradient(currentColor,currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .cta-line:hover .label{ background-size: 100% 1px; }
+
+  /* hero meta row */
+  .hero-meta{
+    display:flex; justify-content: space-between; align-items: flex-end;
+    margin-top: clamp(60px, 10vh, 120px);
+    font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+  .hero-meta .index{ display:flex; gap:24px; }
+  .hero-meta .index span:first-child{ color:#fff; }
+
+  /* ——— Section heading shared ——— */
+  .section-head{
+    display:flex; justify-content: space-between; align-items: baseline;
+    font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #6e6e6e;
+    padding-top: clamp(28px, 4vh, 40px);
+    padding-bottom: clamp(60px, 10vh, 100px);
+    border-top: 1px solid #1a1a1a;
+  }
+  .section-head .label{ display:flex; gap: 16px; }
+  .section-head .label .num{ color:#fff; }
+
+  /* ——— Leistungen ——— */
+  section.services{
+    padding-top: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(80px, 12vh, 160px);
+  }
+
+  /* ——— Services intro text ——— */
+  .services-intro{
+    font-size: 26px;
+    line-height: 1.45;
+    letter-spacing: -0.015em;
+    color: #fff;
+    max-width: 52ch;
+    margin-bottom: clamp(48px, 8vh, 96px);
+  }
+
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0;
+    border-top: 1px solid #1a1a1a;
+  }
+  .service{
+    grid-column: span 4;
+    padding: clamp(40px, 6vh, 72px) 0 clamp(40px, 6vh, 72px) 0;
+    position:relative;
+    border-bottom: 1px solid #1a1a1a;
+    display:flex; flex-direction: column; gap: clamp(28px, 4vh, 48px);
+    min-height: clamp(360px, 48vh, 520px);
+  }
+  .service + .service{ border-left: 1px solid #1a1a1a; padding-left: clamp(28px, 3vw, 56px); }
+  .service:not(:last-child){ padding-right: clamp(28px, 3vw, 56px); }
+
+  .service .num{
+    font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+  .service h3{
+    font-size: clamp(28px, 3.4vw, 52px);
+    line-height: 1.0;
+    letter-spacing: -0.035em;
+    font-weight: 500;
+    max-width: 14ch;
+    margin-top: auto;
+  }
+  .service p{
+    font-size: clamp(14px, 1vw, 16px);
+    line-height: 1.55;
+    color: #a8a8a8;
+    max-width: 32ch;
+  }
+  .service .topics{
+    display:flex; flex-wrap: wrap; gap: 8px 14px;
+    font-size: 12px; color:#6e6e6e;
+    letter-spacing: 0.02em;
+  }
+  .service .topics span{ position:relative; }
+  .service .topics span + span::before{
+    content:""; position:absolute; left:-9px; top:50%;
+    width:3px; height:3px; background:#3a3a3a; border-radius:50%;
+    transform: translateY(-50%);
+  }
+
+  /* ——— About ——— */
+  section.about{
+    padding-top: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(80px, 14vh, 200px);
+  }
+  .about-grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(20px, 4vw, 64px);
+    align-items: start;
+  }
+  .about-grid > .col-left{ grid-column: 1 / span 4; }
+  .about-grid > .col-right{ grid-column: 6 / span 7; }
+
+  .about-text{
+    font-size: clamp(24px, 3vw, 44px);
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    color: #fff;
+    text-wrap: pretty;
+  }
+  .about-text em{
+    font-style: normal;
+    color: #6e6e6e;
+  }
+
+  .client-list{
+    margin-top: clamp(40px, 6vh, 72px);
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 24px;
+    font-size: 14px;
+    color: #a8a8a8;
+    max-width: 480px;
+  }
+  .client-list .row{
+    display:flex; justify-content: space-between;
+    padding: 14px 0;
+    border-bottom: 1px solid #1a1a1a;
+    letter-spacing: -0.005em;
+  }
+  .client-list .row .year{ color:#6e6e6e; font-variant-numeric: tabular-nums; }
+
+  /* ——— Cases / Work ——— */
+  section.work{
+    padding-top: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(80px, 14vh, 200px);
+  }
+  .case{
+    border-top: 1px solid #1a1a1a;
+    padding-top: clamp(40px, 7vh, 80px);
+  }
+  .case-meta{
+    display:flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: clamp(40px, 7vh, 80px);
+    gap: 24px; flex-wrap: wrap;
+  }
+  .case-client{
+    font-size: clamp(36px, 7vw, 112px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+  }
+  .case-tags{
+    display:flex; gap: 8px; flex-wrap: wrap;
+    align-items: center;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+  .case-tags span{
+    border: 1px solid #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+  .case-desc{
+    max-width: 56ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: #a8a8a8;
+    letter-spacing: -0.005em;
+    margin-bottom: clamp(40px, 7vh, 80px);
+  }
+  /* Image grid for case */
+  .case-images{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: clamp(8px, 1vw, 16px);
+    margin-bottom: clamp(16px, 2vh, 24px);
+  }
+  .case-images .img-main{
+    grid-column: span 8;
+  }
+  .case-images .img-stack{
+    grid-column: span 4;
+    display:flex; flex-direction:column; gap: clamp(8px, 1vw, 16px);
+  }
+  .case-images img{
+    width:100%; height:100%; object-fit:cover; display:block;
+    aspect-ratio: auto;
+    background: #0d0d0d;
+  }
+  .case-images .img-main img{
+    aspect-ratio: 4/3;
+  }
+  .case-images .img-stack img{
+    aspect-ratio: 4/3;
+    flex: 1;
+  }
+  .case-image-full{
+    margin-bottom: clamp(8px, 1vw, 16px);
+  }
+  .case-image-full img{
+    width:100%; display:block; height: auto;
+    background: #0d0d0d;
+  }
+  .case-images-row{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(8px, 1vw, 16px);
+    margin-bottom: clamp(24px, 4vh, 48px);
+  }
+  .case-images-row img{
+    width:100%; display:block; object-fit:cover;
+    aspect-ratio: 3/2;
+    background: #0d0d0d;
+  }
+  /* Film placeholder */
+  .case-film{
+    margin-top: clamp(24px, 4vh, 48px);
+    aspect-ratio: 16/9;
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    display:flex; align-items:center; justify-content:center;
+    flex-direction:column; gap: 20px;
+    position:relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .case-film::before{
+    content:"";
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.03) 0%, transparent 70%);
+  }
+  .case-film .play-btn{
+    width:64px; height:64px; border-radius:50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+    transition: border-color .3s ease, transform .3s ease;
+    position:relative; z-index:1;
+  }
+  .case-film:hover .play-btn{
+    border-color: rgba(255,255,255,0.7);
+    transform: scale(1.08);
+  }
+  .case-film .play-btn::after{
+    content:"";
+    width:0; height:0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 16px solid rgba(255,255,255,0.7);
+    margin-left: 4px;
+  }
+  .case-film .film-label{
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #6e6e6e;
+    position:relative; z-index:1;
+  }
+
+  /* ——— Footer ——— */
+  section.footer{
+    padding-top: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(40px, 6vh, 64px);
+    border-top: 1px solid #1a1a1a;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .footer-inner{
+    padding-top: clamp(60px, 12vh, 160px);
+  }
+  .listen{
+    font-size: clamp(64px, 14vw, 240px);
+    line-height: 0.92;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+  }
+  .email-row{
+    margin-top: clamp(48px, 8vh, 96px);
+    display:flex; align-items: flex-end; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap;
+  }
+  .email-link{
+    font-size: clamp(20px, 2.4vw, 36px);
+    letter-spacing: -0.02em;
+    position:relative; display:inline-block;
+    padding-bottom: 4px;
+  }
+  .email-link::after{
+    content:""; position:absolute; left:0; right:0; bottom:0;
+    height: 1px; background:#fff;
+    transform: scaleX(1); transform-origin: left center;
+    transition: transform .55s cubic-bezier(.2,.7,.2,1);
+  }
+  .email-link:hover::after{ transform: scaleX(0); transform-origin: right center; }
+  .email-link .copied{
+    position:absolute; right:0; top:0; transform: translateY(-120%);
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #6e6e6e;
+    opacity:0; transition: opacity .25s ease;
+  }
+  .email-link.is-copied .copied{ opacity: 1; }
+
+  .footer-meta{
+    display:flex; justify-content: space-between;
+    font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
+    color: #6e6e6e;
+    margin-top: clamp(80px, 14vh, 200px);
+  }
+  .footer-meta a:hover{ color:#fff; }
+  .footer-meta .group{ display:flex; gap: 28px; }
+
+  /* ——— Reveal animation ——— */
+  .reveal{
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1);
+    transition-delay: var(--d, 0ms);
+    will-change: opacity, transform;
+  }
+  .reveal.in{ opacity:1; transform: translateY(0); }
+  .reveal-mask{
+    overflow:hidden;
+    display:inline-block;
+  }
+  .reveal-mask > .inner{
+    display:inline-block;
+    transform: translateY(102%);
+    transition: transform 1.1s cubic-bezier(.2,.8,.2,1);
+    transition-delay: var(--d, 0ms);
+    will-change: transform;
+  }
+  .reveal-mask.in > .inner{ transform: translateY(0); }
+
+  /* ——— Cursor blot (subtle on hero) ——— */
+  .blot{
+    position:fixed; top:0; left:0; width:540px; height:540px;
+    border-radius:50%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.06), rgba(255,255,255,0) 60%);
+    pointer-events:none;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    transition: opacity .4s ease;
+    opacity: 0;
+  }
+  body.has-blot .blot{ opacity: 1; }
+
+  /* ——— Marquee in footer ——— */
+  .ticker{
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: clamp(60px, 10vh, 120px);
+    padding: 16px 0;
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+  .ticker .track{
+    display:inline-flex; gap: 48px;
+    animation: ticker 40s linear infinite;
+  }
+  .ticker .track span::before{
+    content:"·"; margin-right: 48px; color:#3a3a3a;
+  }
+  @keyframes ticker{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ——— Responsive ——— */
+  @media (max-width: 880px){
+    .services-grid{ grid-template-columns: 1fr; }
+    .service{ grid-column: 1 / -1; min-height: auto; padding: 40px 0; }
+    .service + .service{ border-left: none; padding-left: 0; }
+    .service:not(:last-child){ padding-right: 0; }
+    .about-grid > .col-left{ grid-column: 1 / -1; }
+    .about-grid > .col-right{ grid-column: 1 / -1; margin-top: 40px; }
+    .blot{ display:none; }
+    h1.headline{ font-size: clamp(44px, 13vw, 88px); }
+    .case-images{ grid-template-columns: 1fr; }
+    .case-images .img-main{ grid-column: 1 / -1; }
+    .case-images .img-stack{ grid-column: 1 / -1; flex-direction: row; }
+    .case-images-row{ grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 560px){
+    .case-images-row{ grid-template-columns: 1fr; }
+    .case-images .img-stack{ flex-direction: column; }
+  }
+
+  /* ——— Legal Overlays ——— */
+  .legal-overlay{
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.97);
+    z-index: 200;
+    overflow-y: auto;
+    padding: clamp(60px, 10vh, 100px) clamp(20px, 4vw, 64px);
+  }
+  .legal-overlay.is-open{ display: block; }
+  .legal-overlay-inner{
+    max-width: 640px;
+    margin: 0 auto;
+    color: #a8a8a8;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .legal-overlay h2{
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    color: #fff;
+    margin-bottom: 48px;
+  }
+  .legal-overlay h3{
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #6e6e6e;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  .legal-overlay p,
+  .legal-overlay address{
+    margin-bottom: 12px;
+    font-style: normal;
+  }
+  .legal-close-btn{
+    display: inline-flex; align-items: center; gap: 10px;
+    margin-bottom: 48px;
+    font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #6e6e6e;
+    background: none; border: none; cursor: pointer;
+    padding: 0;
+    transition: color .2s ease;
+  }
+  .legal-close-btn:hover{ color: #fff; }
+  .footer-legal-nav{
+    display: flex; gap: 24px;
+  }
+  .footer-legal-nav button{
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #6e6e6e;
+    background: none; border: none; cursor: pointer; padding: 0;
+    font-family: inherit;
+    transition: color .2s ease;
+  }
+  .footer-legal-nav button:hover{ color: #fff; }
+
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Gündüz Erdil",
+  "alternateName": "Guenduez Erdil",
+  "jobTitle": "Creative Director",
+  "description": "Freelance Creative Director aus Berlin. Spezialisiert auf Markenkommunikation, Kampagnenentwicklung und kreative Strategie. Ausgezeichnet in Cannes Lions, Clio, ADC und The One Show. Erfahrung mit Coca-Cola, Nike, Swisscom, O2 und weiteren internationalen Marken.",
+  "url": "https://guenduezerdil.com",
+  "email": "hallo@guenduezerdil.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Berlin",
+    "addressCountry": "DE"
+  },
+  "knowsAbout": ["Creative Direction", "Markenkommunikation", "Kampagnenentwicklung", "Logodesign", "Corporate Design", "Strategie"],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Selbständig"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/guenduez-erdil-01714266",
+    "https://www.behance.net/guenni"
+  ]
+}
+</script>
+</head>
+<body>
+  <div class="blot" id="blot" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="top" data-screen-label="01 Nav">
+    <a href="#top" class="name" aria-label="Zur Startseite">
+      <span class="dot" aria-hidden="true"></span>Gündüz Erdil
+    </a>
+    <a href="#kontakt" class="contact">Kontakt</a>
+  </nav>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero wrap" data-screen-label="02 Hero">
+      <div>
+        <div class="eyebrow reveal"><span class="bar"></span>Creative Director</div>
+
+        <h1 class="headline">
+          <span class="reveal-mask" style="--d:60ms"><span class="inner">Vielleicht</span></span>
+          <span class="reveal-mask" style="--d:140ms"><span class="inner">brauchst du</span></span>
+          <span class="reveal-mask" style="--d:220ms"><span class="inner">gar keine</span></span>
+          <span class="reveal-mask" style="--d:300ms"><span class="inner">Kampagne<span class="period">.</span></span></span>
+        </h1>
+
+        <p class="sub reveal" style="--d:600ms">
+          Manchmal ein Plakat. Manchmal eine Website. Manchmal ein Claim.
+        </p>
+
+        <a href="#leistungen" class="cta-line reveal" style="--d:800ms">
+          <span class="arrow" aria-hidden="true"></span>
+          <span class="label">Lass uns herausfinden was wirklich fehlt</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+    <section class="services wrap" id="leistungen" data-screen-label="03 Leistungen">
+      <div class="section-head">
+        <div class="label"><span class="num">01</span><span>Leistungen</span></div>
+      </div>
+
+      <!-- TO-DO 2: Neuer Intro-Text vor den Leistungen -->
+      <p class="services-intro reveal">
+        Ich entwickle und gestalte Kommunikation die wirkt. Ob Kampagne, Logo, TV-Spot oder Social Media.
+      </p>
+
+      <div class="services-grid">
+        <article class="service reveal">
+          <div class="num">01 / 03</div>
+          <!-- TO-DO 1: Bindestrich entfernt, Satz aufgesplittet -->
+          <p>Erst verstehen. Was willst du wirklich sagen. Und zu wem? Bevor wir anfangen, wissen wir warum.</p>
+          <div class="topics">
+            <span>Positionierung</span><span>Tonalität</span><span>Workshops</span>
+          </div>
+          <h3>Strategie<br>&amp; Beratung</h3>
+        </article>
+
+        <article class="service reveal" style="--d:120ms">
+          <div class="num">02 / 03</div>
+          <p>Die Idee ist nicht das Plakat. Sie ist der Gedanke dahinter. Manchmal eine Kampagne. Manchmal ein einziger Satz.</p>
+          <div class="topics">
+            <span>Kampagnen</span><span>Copywriting</span><span>Naming</span>
+          </div>
+          <h3>Konzept<br>&amp; Kreation</h3>
+        </article>
+
+        <article class="service reveal" style="--d:240ms">
+          <div class="num">03 / 03</div>
+          <p>Vom Gedanken zum fertigen Stück. Logo, Kampagne, Print, Digital. Allein oder mit den richtigen Partnern.</p>
+          <div class="topics">
+            <span>Art Direction</span><span>Film</span><span>Print</span><span>Digital</span>
+          </div>
+          <h3>Umsetzung</h3>
+        </article>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about wrap" id="ueber" data-screen-label="04 About">
+      <div class="section-head">
+        <div class="label"><span class="num">02</span><span>Über</span></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="col-left">
+          <div class="client-list">
+            <div class="row"><span>TBWA</span></div>
+            <div class="row"><span>VCCP</span></div>
+            <div class="row"><span>Ogilvy</span></div>
+            <div class="row"><span>Grey</span></div>
+            <div class="row"><span>Saatchi &amp; Saatchi</span></div>
+            <div class="row"><span>Jung von Matt</span></div>
+          </div>
+        </div>
+        <div class="col-right">
+          <!-- TO-DO 3: About-Text mit Awards und Stationen ergänzt -->
+          <p class="about-text reveal">
+            Ich bin Gündüz. Creative Director aus Berlin. Ich habe an Werbekampagnen für Coca-Cola, Nike und Swisscom gearbeitet und gelernt, dass hinter jedem Briefing <em>eine andere Frage steckt.</em> Ich finde sie. <em>Ausgezeichnet in Cannes Lions, Clio, ADC und The One Show. Stationen bei TBWA, VCCP, Ogilvy und Grey.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TO-DO 4: Coca-Cola Case -->
+    <section class="work wrap" id="work" data-screen-label="05 Work">
+      <div class="section-head">
+        <div class="label"><span class="num">03</span><span>Work</span></div>
+      </div>
+
+      <div class="case">
+        <div class="case-meta">
+          <h2 class="case-client reveal">Coca-Cola</h2>
+          <div class="case-tags reveal" style="--d:100ms">
+            <span>Kampagne</span>
+            <span>Print</span>
+            <span>Film</span>
+          </div>
+        </div>
+
+        <p class="case-desc reveal">
+          Für den Launch der Mini Can hatten wir eine Mini-Idee: Ein Mini-Kiosk und einen Mini-Stunt. Aber mit großen Ergebnissen.
+        </p>
+
+        <!-- Awardboard full-width -->
+        <div class="case-image-full reveal">
+          <img src="images/coke-awardboard.jpg" alt="Coca-Cola Awardboard" loading="lazy">
+        </div>
+
+        <!-- Drei Prints nebeneinander -->
+        <div class="case-images-row reveal">
+          <img src="images/coke-print1.jpg" alt="Coca-Cola Print 1" loading="lazy">
+          <img src="images/coke-print2.jpg" alt="Coca-Cola Print 2" loading="lazy">
+          <img src="images/coke-print3.jpg" alt="Coca-Cola Print 3" loading="lazy">
+        </div>
+
+        <!-- Film-Platzhalter -->
+        <div class="case-film reveal" role="button" aria-label="Film abspielen" tabindex="0">
+          <div class="play-btn" aria-hidden="true"></div>
+          <span class="film-label">Film — Link folgt</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <section class="footer wrap" id="kontakt" data-screen-label="06 Footer">
+      <div class="section-head">
+        <div class="label"><span class="num">04</span><span>Kontakt</span></div>
+      </div>
+
+      <div class="footer-inner">
+        <h2 class="listen">
+          <span class="reveal-mask"><span class="inner">Ich höre zu.</span></span>
+        </h2>
+
+        <div class="email-row">
+          <a href="mailto:hallo@guenduezerdil.com" id="emailLink" class="email-link reveal">
+            hallo@guenduezerdil.com
+            <span class="copied">Kopiert</span>
+          </a>
+          <div style="font-size:12px; letter-spacing:0.04em; text-transform:uppercase; color:#6e6e6e;">
+            Antwort innerhalb 24 h
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-meta">
+        <div class="group">
+          <span>© 2026 Gündüz Erdil</span>
+        </div>
+        <!-- TO-DO 5: Impressum & Datenschutz als Overlay-Buttons -->
+        <div class="footer-legal-nav">
+          <button onclick="openLegal('overlay-impressum')" aria-label="Impressum öffnen">Impressum</button>
+          <button onclick="openLegal('overlay-datenschutz')" aria-label="Datenschutz öffnen">Datenschutz</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TO-DO 5: Impressum Overlay -->
+  <div class="legal-overlay" id="overlay-impressum" role="dialog" aria-modal="true" aria-label="Impressum">
+    <div class="legal-overlay-inner">
+      <button class="legal-close-btn" onclick="closeLegal('overlay-impressum')" aria-label="Schließen">← Zurück</button>
+      <h2>Impressum</h2>
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <address>Guenduez Erdil<br>Innsbrucker Str. 22<br>10825 Berlin</address>
+      <h3>Kontakt</h3>
+      <p>E-Mail: hallo@guenduezerdil.com</p>
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <address>Guenduez Erdil<br>Innsbrucker Str. 22<br>10825 Berlin</address>
+    </div>
+  </div>
+
+  <!-- TO-DO 5: Datenschutz Overlay -->
+  <div class="legal-overlay" id="overlay-datenschutz" role="dialog" aria-modal="true" aria-label="Datenschutzerklärung">
+    <div class="legal-overlay-inner">
+      <button class="legal-close-btn" onclick="closeLegal('overlay-datenschutz')" aria-label="Schließen">← Zurück</button>
+      <h2>Datenschutzerklärung</h2>
+      <h3>1. Datenerfassung</h3>
+      <p>Diese Website erhebt keine personenbezogenen Daten. Es werden keine Cookies gesetzt und kein Tracking durchgeführt.</p>
+      <h3>2. Kontakt per E-Mail</h3>
+      <p>Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.</p>
+      <h3>3. Hosting</h3>
+      <p>Diese Website wird gehostet bei Netlify, Inc., 512 2nd Street, Suite 200, San Francisco, CA 94107, USA.</p>
+      <h3>Verantwortlicher</h3>
+      <p>Guenduez Erdil, Innsbrucker Str. 22, 10825 Berlin<br>E-Mail: hallo@guenduezerdil.com</p>
+    </div>
+  </div>
+
+<script>
+  /* Reveal on scroll */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-mask').forEach(el => io.observe(el));
+
+  /* Soft cursor blot — only on devices with a pointer */
+  if (matchMedia('(pointer:fine)').matches){
+    const blot = document.getElementById('blot');
+    document.body.classList.add('has-blot');
+    let tx=0, ty=0, cx=0, cy=0;
+    addEventListener('mousemove', (e)=>{ tx = e.clientX; ty = e.clientY; });
+    function tick(){
+      cx += (tx - cx) * 0.08;
+      cy += (ty - cy) * 0.08;
+      blot.style.transform = `translate(${cx}px, ${cy}px) translate(-50%,-50%)`;
+      requestAnimationFrame(tick);
+    }
+    tick();
+  }
+
+  /* Copy email on click */
+  const emailLink = document.getElementById('emailLink');
+  emailLink.addEventListener('click', async (e) => {
+    e.preventDefault();
+    try{
+      await navigator.clipboard.writeText('hallo@guenduezerdil.com');
+      emailLink.classList.add('is-copied');
+      setTimeout(()=> emailLink.classList.remove('is-copied'), 1800);
+    }catch(_){
+      window.location.href = 'mailto:hallo@guenduezerdil.com';
+    }
+  });
+
+  /* Legal Overlays */
+  function openLegal(id){
+    document.getElementById(id).classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLegal(id){
+    document.getElementById(id).classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+  /* Close overlays on Escape key */
+  document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+      document.querySelectorAll('.legal-overlay.is-open').forEach(el => {
+        el.classList.remove('is-open');
+        document.body.style.overflow = '';
+      });
+    }
+  });
+  /* Close on backdrop click */
+  document.querySelectorAll('.legal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', (e) => {
+      if(e.target === overlay){
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+</script>
+
+</body></html>
