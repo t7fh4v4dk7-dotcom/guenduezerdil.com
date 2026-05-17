@@ -166,6 +166,26 @@
   .section-head .label{ display:flex; gap: 16px; }
   .section-head .label .num{ color:#fff; }
 
+  /* ——— Wann ich helfen kann ——— */
+  section.wann{
+    padding-top: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(80px, 12vh, 160px);
+  }
+  .wann-list{
+    list-style: none;
+    border-top: 1px solid #1a1a1a;
+  }
+  .wann-list li{
+    font-size: clamp(22px, 3.2vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+    color: #fff;
+    padding: clamp(24px, 3.5vh, 44px) 0;
+    border-bottom: 1px solid #1a1a1a;
+    max-width: 22ch;
+  }
+
   /* ——— Leistungen ——— */
   section.services{
     padding-top: clamp(60px, 10vh, 120px);
@@ -659,10 +679,23 @@
       </div>
     </section>
 
+    <!-- Wann ich helfen kann -->
+    <section class="wann wrap" id="wann" data-screen-label="02b Wann">
+      <div class="section-head">
+        <div class="label"><span class="num">01</span><span>Wann ich helfen kann</span></div>
+      </div>
+      <ul class="wann-list">
+        <li class="reveal" style="--d:0ms">Wenn eure Kommunikation beliebig geworden ist.</li>
+        <li class="reveal" style="--d:100ms">Wenn zu viel produziert wird und zu wenig hängen bleibt.</li>
+        <li class="reveal" style="--d:200ms">Wenn intern schon alles gesagt wurde, aber niemand die eigentliche Frage stellt.</li>
+        <li class="reveal" style="--d:300ms">Wenn ihr keine weitere Kampagne wollt, sondern eine bessere Idee.</li>
+      </ul>
+    </section>
+
     <!-- Leistungen -->
     <section class="services wrap" id="leistungen" data-screen-label="03 Leistungen">
       <div class="section-head">
-        <div class="label"><span class="num">01</span><span>Leistungen</span></div>
+        <div class="label"><span class="num">02</span><span>Leistungen</span></div>
       </div>
 
       <!-- TO-DO 2: Neuer Intro-Text vor den Leistungen -->
@@ -704,7 +737,7 @@
     <!-- About -->
     <section class="about wrap" id="ueber" data-screen-label="04 About">
       <div class="section-head">
-        <div class="label"><span class="num">02</span><span>Über</span></div>
+        <div class="label"><span class="num">03</span><span>Über</span></div>
       </div>
 
       <div class="about-grid">
@@ -730,7 +763,7 @@
     <!-- TO-DO 4: Coca-Cola Case -->
     <section class="work wrap" id="work" data-screen-label="05 Work">
       <div class="section-head">
-        <div class="label"><span class="num">03</span><span>Work</span></div>
+        <div class="label"><span class="num">04</span><span>Work</span></div>
       </div>
 
       <div class="case">
@@ -771,7 +804,7 @@
     <!-- Footer / CTA -->
     <section class="footer wrap" id="kontakt" data-screen-label="06 Footer">
       <div class="section-head">
-        <div class="label"><span class="num">04</span><span>Kontakt</span></div>
+        <div class="label"><span class="num">05</span><span>Kontakt</span></div>
       </div>
 
       <div class="footer-inner">
