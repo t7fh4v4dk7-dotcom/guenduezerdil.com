@@ -386,7 +386,10 @@
     margin-top: 12px;
     margin-bottom: clamp(24px, 4vh, 48px);
   }
-  .case-film{
+  .case-film-embed{
+    margin-top: clamp(24px, 4vh, 48px);
+    border: 1px solid #1a1a1a;
+  }
     margin-top: clamp(24px, 4vh, 48px);
     aspect-ratio: 16/9;
     background: #0d0d0d;
@@ -794,10 +797,11 @@
         </div>
         <div class="case-caption reveal">Printkampagne</div>
 
-        <!-- Film-Platzhalter -->
-        <div class="case-film reveal" role="button" aria-label="Film abspielen" tabindex="0">
-          <div class="play-btn" aria-hidden="true"></div>
-          <span class="film-label">Film — Link folgt</span>
+        <!-- Film -->
+        <div class="case-film-embed reveal">
+          <div style="padding:56.25% 0 0 0;position:relative;">
+            <iframe src="https://player.vimeo.com/video/1193326187?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Coca-Cola Mini Can Kiosk"></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -937,4 +941,5 @@
   });
 </script>
 
+<script src="https://player.vimeo.com/api/player.js"></script>
 </body></html>
