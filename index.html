@@ -277,6 +277,16 @@
     color: #6e6e6e;
   }
 
+  .about-photo{
+    width: 100%;
+    display: block;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: clamp(24px, 4vh, 40px);
+    filter: grayscale(20%);
+  }
+
   .client-list{
     margin-top: clamp(40px, 6vh, 72px);
     display:grid;
@@ -746,8 +756,9 @@
 
       <div class="about-grid">
         <div class="col-left">
+          <img src="images/Guenduez_Erdil.png" alt="Gündüz Erdil" class="about-photo reveal">
           <div class="client-list">
-            <div class="row"><span>TBWA</span></div>
+            <div class="row"><span>Heimat/TBWA</span></div>
             <div class="row"><span>VCCP</span></div>
             <div class="row"><span>Ogilvy</span></div>
             <div class="row"><span>Grey</span></div>
