@@ -388,6 +388,20 @@
     background: #0d0d0d;
   }
   /* Film placeholder */
+  .case-images-portrait{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(8px, 1vw, 16px);
+    margin-bottom: clamp(8px, 1vw, 16px);
+    align-items: start;
+  }
+  .case-images-portrait img{
+    width:100%; display:block;
+    height: auto;
+    object-fit: contain;
+    background: #0d0d0d;
+  }
+
   .case-caption{
     font-size: 11px;
     letter-spacing: 0.06em;
@@ -837,7 +851,7 @@
         <div class="case-caption reveal">Teaserkampagne</div>
 
         <!-- Brand Poster -->
-        <div class="case-images-row reveal">
+        <div class="case-images-portrait reveal">
           <img src="images/print_01.jpg" alt="o2o Print 1" loading="lazy">
           <img src="images/print_02.jpg" alt="o2o Print 2" loading="lazy">
           <img src="images/print_03.jpg" alt="o2o Print 3" loading="lazy">
