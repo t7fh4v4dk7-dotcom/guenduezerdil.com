@@ -471,6 +471,35 @@
     margin-bottom: clamp(36px, 6vh, 72px);
   }
 
+  /* Report / Portrait grid for DeinAdieu */
+  .case-report-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: clamp(8px, 1vw, 16px);
+    margin-bottom: clamp(12px, 2vh, 24px);
+    background: #0a0a0a;
+    padding: clamp(16px, 2vw, 32px);
+  }
+  .case-report-main img,
+  .case-report-stack img {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+  }
+  .case-report-stack {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(8px, 1vw, 16px);
+  }
+  @media (max-width: 700px) {
+    .case-report-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .case-report-main {
+      grid-column: 1 / -1;
+    }
+  }
+
   /* Mobile: smaller icon, tighter padding */
   @media (max-width: 560px){
     .acc-icon{ width: 30px; height: 30px; }
@@ -1090,19 +1119,20 @@
               <p class="acc-desc">
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
-              <div class="case-image-full">
-                <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
+              <div class="case-report-grid">
+                <div class="case-report-main">
+                  <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Cover" loading="lazy">
+                </div>
+                <div class="case-report-stack">
+                  <img src="images/deinadieu-revision.jpg" alt="Erbrechtsrevision" loading="lazy">
+                  <img src="images/deinadieu-chart.jpg" alt="Testamentspenden" loading="lazy">
+                </div>
+                <div class="case-report-stack">
+                  <img src="images/deinadieu-ngo.jpg" alt="NGO Verteilung" loading="lazy">
+                  <img src="images/deinadieu-before-after.jpg" alt="Erbrechtsrevision Vergleich" loading="lazy">
+                </div>
               </div>
-              <div class="case-images-row">
-                <img src="images/deinadieu-revision.jpg" alt="Erbrechtsrevision Infografik" loading="lazy">
-                <img src="images/deinadieu-chart.jpg" alt="Testamentspenden nach Bereichen" loading="lazy">
-                <img src="images/deinadieu-ngo.jpg" alt="NGO Verteilung" loading="lazy">
-              </div>
-              <div class="case-caption">Ausgewählte Seiten — Layout &amp; Datenvisualisierung</div>
-              <div class="case-image-full">
-                <img src="images/deinadieu-before-after.jpg" alt="Begünstigte vor und nach der Revision" loading="lazy">
-              </div>
-              <div class="case-caption">Begünstigte vor &amp; nach der Erbrechtsrevision 2023</div>
+              <div class="case-caption">Layout &amp; Datenvisualisierung — 68 Seiten, Print &amp; Digital</div>
             </div>
           </div>
         </div>
