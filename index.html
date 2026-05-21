@@ -373,6 +373,81 @@
     padding-top: clamp(60px, 10vh, 120px);
     padding-bottom: clamp(80px, 14vh, 200px);
   }
+
+  /* Accordion */
+  .acc-item{
+    border-top: 1px solid #1a1a1a;
+  }
+  .acc-trigger{
+    width: 100%;
+    background: none; border: none; color: inherit;
+    cursor: pointer; padding: 0;
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: clamp(28px, 5vh, 56px);
+    padding-bottom: clamp(28px, 5vh, 56px);
+    gap: 24px;
+    text-align: left;
+  }
+  .acc-trigger-left{
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .acc-client{
+    font-size: clamp(36px, 7vw, 112px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    color: #fff;
+    transition: color .3s ease;
+  }
+  .acc-item:not(.is-open) .acc-trigger:hover .acc-client{
+    color: #6e6e6e;
+  }
+  .acc-tags{
+    display:flex; gap: 8px; flex-wrap: wrap;
+    font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: #6e6e6e;
+  }
+  .acc-tags span{
+    border: 1px solid #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 2px;
+  }
+  .acc-icon{
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border: 1px solid #1a1a1a;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color .3s ease, transform .4s cubic-bezier(.2,.7,.2,1);
+    position: relative;
+  }
+  .acc-icon::before,
+  .acc-icon::after{
+    content:"";
+    position:absolute;
+    background:#fff;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .3s ease;
+  }
+  .acc-icon::before{ width:12px; height:1px; }
+  .acc-icon::after{ width:1px; height:12px; }
+  .acc-item.is-open .acc-icon::after{ transform: rotate(90deg); opacity: 0; }
+  .acc-item.is-open .acc-icon{ border-color: #3a3a3a; transform: rotate(45deg); }
+
+  .acc-body{
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .5s cubic-bezier(.2,.7,.2,1);
+  }
+  .acc-item.is-open .acc-body{
+    grid-template-rows: 1fr;
+  }
+  .acc-body-inner{
+    overflow: hidden;
+  }
+  .acc-content{
+    padding-bottom: clamp(60px, 10vh, 120px);
+  }
+
   .case{
     border-top: 1px solid #1a1a1a;
     padding-top: clamp(40px, 7vh, 80px);
@@ -749,11 +824,11 @@
         Cases <span class="chevron" aria-hidden="true"></span>
       </button>
       <div class="nav-cases-menu" id="caseMenu" role="menu">
-        <a href="#work" role="menuitem" onclick="closeCases()">Coca-Cola — Mini Can</a>
-        <a href="#nike" role="menuitem" onclick="closeCases()">Nike — Lira Bajramaj</a>
-        <a href="#o2o" role="menuitem" onclick="closeCases()">o₂o — Doodles</a>
+        <a href="#work" role="menuitem" onclick="closeCases(); setTimeout(()=>openAcc('case-coke'),400)">Coca-Cola — Mini Can</a>
+        <a href="#work" role="menuitem" onclick="closeCases(); setTimeout(()=>openAcc('case-nike'),400)">Nike — Lira Bajramaj</a>
+        <a href="#work" role="menuitem" onclick="closeCases(); setTimeout(()=>openAcc('case-o2o'),400)">o₂o — Doodles</a>
         <div class="menu-divider"></div>
-        <a href="deinadieu_final.html" target="_blank" role="menuitem" onclick="closeCases()">DeinAdieu — Erbschaftsreport ↗</a>
+        <a href="#work" role="menuitem" onclick="closeCases(); setTimeout(()=>openAcc('case-deinadieu'),400)">DeinAdieu — Erbschaftsreport</a>
       </div>
     </div>
     <a href="#kontakt" class="contact">Kontakt</a>
@@ -860,159 +935,155 @@
       </div>
     </section>
 
-    <!-- TO-DO 4: Coca-Cola Case -->
+    <!-- Work / Cases Accordion -->
     <section class="work wrap" id="work" data-screen-label="05 Work">
       <div class="section-head">
         <div class="label"><span class="num">04</span><span>Work</span></div>
       </div>
 
-      <div class="case">
-        <div class="case-meta">
-          <h2 class="case-client reveal">Coca-Cola</h2>
-          <div class="case-tags reveal" style="--d:100ms">
-            <span>Kampagne</span>
-            <span>Print</span>
-            <span>Film</span>
+      <!-- Coca-Cola -->
+      <div class="acc-item is-open" id="case-coke">
+        <button class="acc-trigger" onclick="toggleAcc('case-coke')" aria-expanded="true">
+          <div class="acc-trigger-left">
+            <span class="acc-client">Coca-Cola</span>
+            <div class="acc-tags">
+              <span>Kampagne</span><span>Print</span><span>Film</span>
+            </div>
           </div>
-        </div>
-
-        <p class="case-desc reveal">
-          Für den Launch der Mini Can hatten wir eine Mini-Idee: Ein Mini-Kiosk und einen Mini-Stunt. Aber mit großen Ergebnissen.
-        </p>
-
-        <!-- Awardboard full-width -->
-        <div class="case-image-full reveal">
-          <img src="images/coke-awardboard.jpg" alt="Coca-Cola Awardboard" loading="lazy">
-        </div>
-
-        <!-- Drei Prints nebeneinander -->
-        <div class="case-images-row reveal">
-          <img src="images/coke-print1.jpg" alt="Coca-Cola Print 1" loading="lazy">
-          <img src="images/coke-print2.jpg" alt="Coca-Cola Print 2" loading="lazy">
-          <img src="images/coke-print3.jpg" alt="Coca-Cola Print 3" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Printkampagne</div>
-
-        <!-- Film -->
-        <div class="case-film-embed reveal">
-          <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/1193326187?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Coca-Cola Mini Can Kiosk"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- o2o Case -->
-    <section class="work wrap" id="o2o">
-      <div class="case">
-        <div class="case-meta">
-          <h2 class="case-client reveal">o<sub style="font-size:0.55em;vertical-align:baseline">2</sub>o</h2>
-          <div class="case-tags reveal" style="--d:100ms">
-            <span>Kampagne</span>
-            <span>Integrated</span>
-            <span>Launch</span>
-          </div>
-        </div>
-
-        <p class="case-desc reveal">
-          Wie bewirbt man einen Tarif, ohne über Kosten zu reden? Die Idee: Doodles. Telefonkritzeleien die entstehen, wenn Menschen entspannt am Telefon plaudern. Eine Idee so unverwechselbar, dass die Kampagne am Ende keinen Absender mehr brauchte.
-        </p>
-
-        <!-- Teaser Plakate -->
-        <div class="case-images-row reveal">
-          <img src="images/o2o_teaser_1.jpg" alt="o2o Teaser 1" loading="lazy">
-          <img src="images/o2o_teaser_2.jpg" alt="o2o Teaser 2" loading="lazy">
-          <img src="images/o2o_teaser_3.jpg" alt="o2o Teaser 3" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Teaserkampagne</div>
-
-        <!-- Brand Poster -->
-        <div class="case-images-portrait reveal">
-          <img src="images/print_01.jpg" alt="o2o Print 1" loading="lazy">
-          <img src="images/print_02.jpg" alt="o2o Print 2" loading="lazy">
-          <img src="images/print_03.jpg" alt="o2o Print 3" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Printkampagne</div>
-
-        <!-- Film -->
-        <div class="case-film-embed reveal">
-          <div style="padding:56.25% 0 0 0;position:relative;">
-            <iframe src="https://player.vimeo.com/video/1194074642?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="o2o Doodles Launch Kampagne"></iframe>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <div class="acc-content">
+              <p class="case-desc reveal">
+                Für den Launch der Mini Can hatten wir eine Mini-Idee: Ein Mini-Kiosk und einen Mini-Stunt. Aber mit großen Ergebnissen.
+              </p>
+              <div class="case-image-full reveal">
+                <img src="images/coke-awardboard.jpg" alt="Coca-Cola Awardboard" loading="lazy">
+              </div>
+              <div class="case-images-row reveal">
+                <img src="images/coke-print1.jpg" alt="Coca-Cola Print 1" loading="lazy">
+                <img src="images/coke-print2.jpg" alt="Coca-Cola Print 2" loading="lazy">
+                <img src="images/coke-print3.jpg" alt="Coca-Cola Print 3" loading="lazy">
+              </div>
+              <div class="case-caption reveal">Printkampagne</div>
+              <div class="case-film-embed reveal">
+                <div style="padding:56.25% 0 0 0;position:relative;">
+                  <iframe src="https://player.vimeo.com/video/1193326187?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Coca-Cola Mini Can Kiosk"></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Nike Case -->
-    <section class="work wrap" id="nike">
-      <div class="case">
-        <div class="case-meta">
-          <h2 class="case-client reveal">Nike</h2>
-          <div class="case-tags reveal" style="--d:100ms">
-            <span>Kampagne</span>
-            <span>Print</span>
-            <span>Outdoor</span>
+      <!-- Nike -->
+      <div class="acc-item" id="case-nike">
+        <button class="acc-trigger" onclick="toggleAcc('case-nike')" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-client">Nike</span>
+            <div class="acc-tags">
+              <span>Kampagne</span><span>Print</span><span>Outdoor</span>
+            </div>
+          </div>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <div class="acc-content">
+              <p class="case-desc">
+                Lira Bajramaj. Deutschlands beste Fußballerin. Die Frauen-WM 2011 findet in Deutschland statt. Wie macht man aus einer Spielerin eine Ikone? Mit einem Datum. 17.7.11 — der Tag des Finals. Jedes Motiv, jedes Plakat, jede Headline baute darauf hin. Ausgezeichnet mit dem Golden Drum.
+              </p>
+              <div class="case-images-row">
+                <img src="images/nike-print-01.jpg" alt="Nike Lira Bajramaj Print 1" loading="lazy">
+                <img src="images/nike-print-02.jpg" alt="Nike Lira Bajramaj Print 2" loading="lazy">
+                <img src="images/nike-print-03.jpg" alt="Nike Lira Bajramaj Print 3" loading="lazy">
+              </div>
+              <div class="case-caption">Printkampagne</div>
+              <div class="case-image-full">
+                <img src="images/nike-riesenposter.jpg" alt="Nike Lira Bajramaj Riesenposter Berlin" loading="lazy">
+              </div>
+              <div class="case-caption">Großflächenplakat Berlin</div>
+              <div class="case-image-full">
+                <img src="images/nike-niketown.jpg" alt="Nike Lira Bajramaj Niketown Berlin" loading="lazy">
+              </div>
+              <div class="case-caption">Niketown Berlin</div>
+            </div>
           </div>
         </div>
-
-        <p class="case-desc reveal">
-          Lira Bajramaj. Deutschlands beste Fußballerin. Die Frauen-WM 2011 findet in Deutschland statt. Wie macht man aus einer Spielerin eine Ikone? Mit einem Datum. 17.7.11 — der Tag des Finals. Jedes Motiv, jedes Plakat, jede Headline baute darauf hin. Ausgezeichnet mit dem Golden Drum.
-        </p>
-
-        <!-- Print Poster -->
-        <div class="case-images-row reveal">
-          <img src="images/nike-print-01.jpg" alt="Nike Lira Bajramaj Print 1" loading="lazy">
-          <img src="images/nike-print-02.jpg" alt="Nike Lira Bajramaj Print 2" loading="lazy">
-          <img src="images/nike-print-03.jpg" alt="Nike Lira Bajramaj Print 3" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Printkampagne</div>
-
-        <!-- Riesenposter -->
-        <div class="case-image-full reveal">
-          <img src="images/nike-riesenposter.jpg" alt="Nike Lira Bajramaj Riesenposter Berlin" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Großflächenplakat Berlin</div>
-
-        <!-- Niketown -->
-        <div class="case-image-full reveal">
-          <img src="images/nike-niketown.jpg" alt="Nike Lira Bajramaj Niketown Berlin" loading="lazy">
-        </div>
-        <div class="case-caption reveal">Niketown Berlin</div>
       </div>
-    </section>
 
-    <!-- DeinAdieu Case -->
-    <section class="work wrap" id="deinadieu">
-      <div class="case">
-        <div class="case-meta">
-          <h2 class="case-client reveal">DeinAdieu</h2>
-          <div class="case-tags reveal" style="--d:100ms">
-            <span>Editorial Design</span>
-            <span>Datenvisualisierung</span>
-            <span>Print</span>
+      <!-- o2o -->
+      <div class="acc-item" id="case-o2o">
+        <button class="acc-trigger" onclick="toggleAcc('case-o2o')" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-client">o<sub style="font-size:0.55em;vertical-align:baseline">2</sub>o</span>
+            <div class="acc-tags">
+              <span>Kampagne</span><span>Integrated</span><span>Launch</span>
+            </div>
+          </div>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <div class="acc-content">
+              <p class="case-desc">
+                Wie bewirbt man einen Tarif, ohne über Kosten zu reden? Die Idee: Doodles. Telefonkritzeleien die entstehen, wenn Menschen entspannt am Telefon plaudern. Eine Idee so unverwechselbar, dass die Kampagne am Ende keinen Absender mehr brauchte.
+              </p>
+              <div class="case-images-row">
+                <img src="images/o2o_teaser_1.jpg" alt="o2o Teaser 1" loading="lazy">
+                <img src="images/o2o_teaser_2.jpg" alt="o2o Teaser 2" loading="lazy">
+                <img src="images/o2o_teaser_3.jpg" alt="o2o Teaser 3" loading="lazy">
+              </div>
+              <div class="case-caption">Teaserkampagne</div>
+              <div class="case-images-portrait">
+                <img src="images/print_01.jpg" alt="o2o Print 1" loading="lazy">
+                <img src="images/print_02.jpg" alt="o2o Print 2" loading="lazy">
+                <img src="images/print_03.jpg" alt="o2o Print 3" loading="lazy">
+              </div>
+              <div class="case-caption">Printkampagne</div>
+              <div class="case-film-embed">
+                <div style="padding:56.25% 0 0 0;position:relative;">
+                  <iframe src="https://player.vimeo.com/video/1194074642?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="o2o Doodles Launch Kampagne"></iframe>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+      </div>
 
-        <p class="case-desc reveal">
-          Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
-        </p>
-
-        <div class="case-image-full reveal">
-          <a href="deinadieu_final.html" target="_blank" style="display:block;">
-            <img src="images/deinadieu-preview.jpg" alt="DeinAdieu Erbschaftsreport" loading="lazy"
-              style="filter: brightness(0.92);">
-          </a>
-        </div>
-
-        <div class="case-caption reveal">
-          <a href="deinadieu_final.html" target="_blank"
-            style="color:#6e6e6e; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s ease;"
-            onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6e6e6e'">
-            Case ansehen
-            <span style="font-size:13px;">↗</span>
-          </a>
+      <!-- DeinAdieu -->
+      <div class="acc-item" id="case-deinadieu">
+        <button class="acc-trigger" onclick="toggleAcc('case-deinadieu')" aria-expanded="false">
+          <div class="acc-trigger-left">
+            <span class="acc-client">DeinAdieu</span>
+            <div class="acc-tags">
+              <span>Editorial Design</span><span>Datenvisualisierung</span><span>Print</span>
+            </div>
+          </div>
+          <div class="acc-icon" aria-hidden="true"></div>
+        </button>
+        <div class="acc-body">
+          <div class="acc-body-inner">
+            <div class="acc-content">
+              <p class="case-desc">
+                Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
+              </p>
+              <div class="case-image-full">
+                <img src="images/deinadieu-preview.jpg" alt="DeinAdieu Erbschaftsreport" loading="lazy">
+              </div>
+              <div class="case-caption">
+                <a href="deinadieu_final.html" target="_blank"
+                  style="color:#6e6e6e; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s ease;"
+                  onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6e6e6e'">
+                  Vollständigen Case ansehen <span style="font-size:13px;">↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+
     </section>
 
     <!-- Footer / CTA -->
@@ -1166,6 +1237,32 @@
   document.addEventListener('click', (e) => {
     if(!document.getElementById('navCases').contains(e.target)) closeCases();
   });
+
+  /* Accordion */
+  function openAcc(id){
+    document.querySelectorAll('.acc-item').forEach(item => {
+      const isTarget = item.id === id;
+      item.classList.toggle('is-open', isTarget);
+      item.querySelector('.acc-trigger').setAttribute('aria-expanded', isTarget);
+    });
+    // Scroll to section
+    const el = document.getElementById(id);
+    if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function toggleAcc(id){
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('is-open');
+    // Close all
+    document.querySelectorAll('.acc-item').forEach(i => {
+      i.classList.remove('is-open');
+      i.querySelector('.acc-trigger').setAttribute('aria-expanded', false);
+    });
+    // Open clicked if it was closed
+    if(!isOpen){
+      item.classList.add('is-open');
+      item.querySelector('.acc-trigger').setAttribute('aria-expanded', true);
+    }
+  }
 </script>
 
 <script src="https://player.vimeo.com/api/player.js"></script>
