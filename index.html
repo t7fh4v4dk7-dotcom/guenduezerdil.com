@@ -382,14 +382,19 @@
     width: 100%;
     background: none; border: none; color: inherit;
     cursor: pointer; padding: 0;
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: clamp(28px, 5vh, 56px);
-    padding-bottom: clamp(28px, 5vh, 56px);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
     gap: 24px;
+    padding-top: clamp(24px, 4vh, 44px);
+    padding-bottom: clamp(24px, 4vh, 44px);
     text-align: left;
+    font-family: inherit;
   }
   .acc-trigger-left{
-    display: flex; flex-direction: column; gap: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
   }
   .acc-client{
     font-size: clamp(36px, 7vw, 112px);
@@ -398,12 +403,13 @@
     line-height: 0.95;
     color: #fff;
     transition: color .3s ease;
+    display: block;
   }
   .acc-item:not(.is-open) .acc-trigger:hover .acc-client{
     color: #6e6e6e;
   }
   .acc-tags{
-    display:flex; gap: 8px; flex-wrap: wrap;
+    display: flex; gap: 8px; flex-wrap: wrap;
     font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
     color: #6e6e6e;
   }
@@ -412,27 +418,36 @@
     padding: 5px 10px;
     border-radius: 2px;
   }
+
+  /* Plus/minus icon */
   .acc-icon{
     flex-shrink: 0;
-    width: 40px; height: 40px;
-    border: 1px solid #1a1a1a;
+    width: 36px; height: 36px;
+    border: 1px solid #2a2a2a;
     border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    transition: border-color .3s ease, transform .4s cubic-bezier(.2,.7,.2,1);
+    transition: border-color .3s ease;
     position: relative;
   }
   .acc-icon::before,
   .acc-icon::after{
     content:"";
-    position:absolute;
-    background:#fff;
-    transition: transform .4s cubic-bezier(.2,.7,.2,1), opacity .3s ease;
+    position: absolute;
+    background: #fff;
+    border-radius: 1px;
+    transition: transform .35s cubic-bezier(.2,.7,.2,1), opacity .3s ease;
   }
-  .acc-icon::before{ width:12px; height:1px; }
-  .acc-icon::after{ width:1px; height:12px; }
-  .acc-item.is-open .acc-icon::after{ transform: rotate(90deg); opacity: 0; }
-  .acc-item.is-open .acc-icon{ border-color: #3a3a3a; transform: rotate(45deg); }
+  .acc-icon::before{ width: 11px; height: 1px; }
+  .acc-icon::after{  width: 1px; height: 11px; }
+  .acc-item.is-open .acc-icon::after{
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  .acc-item.is-open .acc-icon{
+    border-color: #3a3a3a;
+  }
 
+  /* Body collapse via grid */
   .acc-body{
     display: grid;
     grid-template-rows: 0fr;
@@ -445,18 +460,24 @@
     overflow: hidden;
   }
   .acc-content{
-    padding-bottom: clamp(60px, 10vh, 120px);
+    padding-bottom: clamp(48px, 8vh, 100px);
+  }
+  .acc-desc{
+    max-width: 56ch;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 1.6;
+    color: #a8a8a8;
+    letter-spacing: -0.005em;
+    margin-bottom: clamp(36px, 6vh, 72px);
   }
 
-  .case{
-    border-top: 1px solid #1a1a1a;
-    padding-top: clamp(40px, 7vh, 80px);
+  /* Mobile: smaller icon, tighter padding */
+  @media (max-width: 560px){
+    .acc-icon{ width: 30px; height: 30px; }
+    .acc-icon::before{ width: 9px; }
+    .acc-icon::after{ height: 9px; }
   }
-  .case-meta{
-    display:flex; justify-content: space-between; align-items: baseline;
-    margin-bottom: clamp(40px, 7vh, 80px);
-    gap: 24px; flex-wrap: wrap;
-  }
+
   .case-client{
     font-size: clamp(36px, 7vw, 112px);
     font-weight: 500;
@@ -955,19 +976,19 @@
         <div class="acc-body">
           <div class="acc-body-inner">
             <div class="acc-content">
-              <p class="case-desc reveal">
+              <p class="acc-desc">
                 Für den Launch der Mini Can hatten wir eine Mini-Idee: Ein Mini-Kiosk und einen Mini-Stunt. Aber mit großen Ergebnissen.
               </p>
-              <div class="case-image-full reveal">
+              <div class="case-image-full">
                 <img src="images/coke-awardboard.jpg" alt="Coca-Cola Awardboard" loading="lazy">
               </div>
-              <div class="case-images-row reveal">
+              <div class="case-images-row">
                 <img src="images/coke-print1.jpg" alt="Coca-Cola Print 1" loading="lazy">
                 <img src="images/coke-print2.jpg" alt="Coca-Cola Print 2" loading="lazy">
                 <img src="images/coke-print3.jpg" alt="Coca-Cola Print 3" loading="lazy">
               </div>
-              <div class="case-caption reveal">Printkampagne</div>
-              <div class="case-film-embed reveal">
+              <div class="case-caption">Printkampagne</div>
+              <div class="case-film-embed">
                 <div style="padding:56.25% 0 0 0;position:relative;">
                   <iframe src="https://player.vimeo.com/video/1193326187?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Coca-Cola Mini Can Kiosk"></iframe>
                 </div>
@@ -991,7 +1012,7 @@
         <div class="acc-body">
           <div class="acc-body-inner">
             <div class="acc-content">
-              <p class="case-desc">
+              <p class="acc-desc">
                 Lira Bajramaj. Deutschlands beste Fußballerin. Die Frauen-WM 2011 findet in Deutschland statt. Wie macht man aus einer Spielerin eine Ikone? Mit einem Datum. 17.7.11 — der Tag des Finals. Jedes Motiv, jedes Plakat, jede Headline baute darauf hin. Ausgezeichnet mit dem Golden Drum.
               </p>
               <div class="case-images-row">
@@ -1027,7 +1048,7 @@
         <div class="acc-body">
           <div class="acc-body-inner">
             <div class="acc-content">
-              <p class="case-desc">
+              <p class="acc-desc">
                 Wie bewirbt man einen Tarif, ohne über Kosten zu reden? Die Idee: Doodles. Telefonkritzeleien die entstehen, wenn Menschen entspannt am Telefon plaudern. Eine Idee so unverwechselbar, dass die Kampagne am Ende keinen Absender mehr brauchte.
               </p>
               <div class="case-images-row">
@@ -1066,14 +1087,14 @@
         <div class="acc-body">
           <div class="acc-body-inner">
             <div class="acc-content">
-              <p class="case-desc">
+              <p class="acc-desc">
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
               <div class="case-image-full">
                 <img src="images/deinadieu-preview.jpg" alt="DeinAdieu Erbschaftsreport" loading="lazy">
               </div>
               <div class="case-caption">
-                <a href="deinadieu_final.html" target="_blank"
+                <a href="deinadieu_final.html"
                   style="color:#6e6e6e; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s ease;"
                   onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6e6e6e'">
                   Vollständigen Case ansehen <span style="font-size:13px;">↗</span>
