@@ -471,25 +471,47 @@
     margin-bottom: clamp(36px, 6vh, 72px);
   }
 
-  /* Report / Portrait grid for DeinAdieu */
-  .case-report-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: clamp(8px, 1vw, 16px);
-    margin-bottom: clamp(12px, 2vh, 24px);
-    background: #0a0a0a;
-    padding: clamp(16px, 2vw, 32px);
+  /* DeinAdieu editorial layout */
+  .da-hero {
+    margin-bottom: 3px;
+    background: #111;
+    padding: clamp(32px, 4vw, 64px) clamp(40px, 8vw, 140px);
+    display: flex;
+    justify-content: center;
   }
-  .case-report-main img,
-  .case-report-stack img {
+  .da-hero img {
+    width: 100%;
+    max-width: 860px;
+    display: block;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+  }
+  .da-duo {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3px;
+    margin-bottom: clamp(12px, 2vh, 24px);
+    background: #111;
+  }
+  .da-duo-item {
+    background: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(24px, 3vw, 48px);
+  }
+  .da-duo-cover img,
+  .da-duo-inner img {
     width: 100%;
     display: block;
-    filter: drop-shadow(0 4px 20px rgba(0,0,0,0.5));
+    box-shadow: 0 4px 32px rgba(0,0,0,0.5);
   }
-  .case-report-stack {
-    display: flex;
-    flex-direction: column;
-    gap: clamp(8px, 1vw, 16px);
+  @media (max-width: 600px) {
+    .da-duo {
+      grid-template-columns: 1fr;
+    }
+    .da-hero {
+      padding: 24px;
+    }
   }
   @media (max-width: 700px) {
     .case-report-grid {
@@ -1119,19 +1141,22 @@
               <p class="acc-desc">
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
-              <div class="case-report-grid">
-                <div class="case-report-main">
+
+              <!-- Hero: big chart -->
+              <div class="da-hero">
+                <img src="images/deinadieu-chart.jpg" alt="Testamentspenden nach NGO-Bereichen" loading="lazy">
+              </div>
+
+              <!-- Two smaller below -->
+              <div class="da-duo">
+                <div class="da-duo-item da-duo-cover">
                   <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Cover" loading="lazy">
                 </div>
-                <div class="case-report-stack">
-                  <img src="images/deinadieu-revision.jpg" alt="Erbrechtsrevision" loading="lazy">
-                  <img src="images/deinadieu-chart.jpg" alt="Testamentspenden" loading="lazy">
-                </div>
-                <div class="case-report-stack">
-                  <img src="images/deinadieu-ngo.jpg" alt="NGO Verteilung" loading="lazy">
+                <div class="da-duo-item da-duo-inner">
                   <img src="images/deinadieu-before-after.jpg" alt="Erbrechtsrevision Vergleich" loading="lazy">
                 </div>
               </div>
+
               <div class="case-caption">Layout &amp; Datenvisualisierung — 68 Seiten, Print &amp; Digital</div>
             </div>
           </div>
