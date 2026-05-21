@@ -71,6 +71,70 @@
   }
   nav.top .contact:hover::after{ transform: scaleX(1); transform-origin: left center; }
 
+  /* ——— Cases Dropdown ——— */
+  .nav-cases{
+    position: relative;
+  }
+  .nav-cases-trigger{
+    font-size: 14px;
+    letter-spacing: -0.01em;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+  }
+  .nav-cases-trigger .chevron{
+    width: 8px; height: 8px;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform .3s ease;
+    display: inline-block;
+  }
+  .nav-cases.open .chevron{
+    transform: rotate(-135deg) translateY(-2px);
+  }
+  .nav-cases-menu{
+    position: absolute;
+    top: calc(100% + 16px);
+    right: 0;
+    background: #000;
+    border: 1px solid #1a1a1a;
+    min-width: 220px;
+    padding: 8px 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    transition: opacity .25s ease, transform .25s ease;
+  }
+  .nav-cases.open .nav-cases-menu{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav-cases-menu a{
+    display: block;
+    padding: 10px 20px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #6e6e6e;
+    transition: color .2s ease;
+    white-space: nowrap;
+  }
+  .nav-cases-menu a:hover{ color: #fff; }
+  .nav-cases-menu .menu-divider{
+    height: 1px;
+    background: #1a1a1a;
+    margin: 6px 0;
+  }
+
   /* ——— Hero ——— */
   section.hero{
     min-height: 100vh;
@@ -680,6 +744,18 @@
     <a href="#top" class="name" aria-label="Zur Startseite">
       <span class="dot" aria-hidden="true"></span>Gündüz Erdil
     </a>
+    <div class="nav-cases" id="navCases">
+      <button class="nav-cases-trigger" onclick="toggleCases(event)" aria-expanded="false" aria-controls="caseMenu">
+        Cases <span class="chevron" aria-hidden="true"></span>
+      </button>
+      <div class="nav-cases-menu" id="caseMenu" role="menu">
+        <a href="#work" role="menuitem" onclick="closeCases()">Coca-Cola — Mini Can</a>
+        <a href="#nike" role="menuitem" onclick="closeCases()">Nike — Lira Bajramaj</a>
+        <a href="#o2o" role="menuitem" onclick="closeCases()">o₂o — Doodles</a>
+        <div class="menu-divider"></div>
+        <a href="deinadieu_final.html" target="_blank" role="menuitem" onclick="closeCases()">DeinAdieu — Erbschaftsreport ↗</a>
+      </div>
+    </div>
     <a href="#kontakt" class="contact">Kontakt</a>
   </nav>
 
@@ -905,6 +981,40 @@
       </div>
     </section>
 
+    <!-- DeinAdieu Case -->
+    <section class="work wrap" id="deinadieu">
+      <div class="case">
+        <div class="case-meta">
+          <h2 class="case-client reveal">DeinAdieu</h2>
+          <div class="case-tags reveal" style="--d:100ms">
+            <span>Editorial Design</span>
+            <span>Datenvisualisierung</span>
+            <span>Print</span>
+          </div>
+        </div>
+
+        <p class="case-desc reveal">
+          Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
+        </p>
+
+        <div class="case-image-full reveal">
+          <a href="deinadieu_final.html" target="_blank" style="display:block;">
+            <img src="images/deinadieu-preview.jpg" alt="DeinAdieu Erbschaftsreport" loading="lazy"
+              style="filter: brightness(0.92);">
+          </a>
+        </div>
+
+        <div class="case-caption reveal">
+          <a href="deinadieu_final.html" target="_blank"
+            style="color:#6e6e6e; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s ease;"
+            onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6e6e6e'">
+            Case ansehen
+            <span style="font-size:13px;">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- Footer / CTA -->
     <section class="footer wrap" id="kontakt" data-screen-label="06 Footer">
       <div class="section-head">
@@ -1027,6 +1137,7 @@
         el.classList.remove('is-open');
         document.body.style.overflow = '';
       });
+      closeCases();
     }
   });
   /* Close on backdrop click */
@@ -1037,6 +1148,23 @@
         document.body.style.overflow = '';
       }
     });
+  });
+
+  /* Cases dropdown */
+  function toggleCases(e){
+    e.stopPropagation();
+    const el = document.getElementById('navCases');
+    const btn = el.querySelector('.nav-cases-trigger');
+    const isOpen = el.classList.toggle('open');
+    btn.setAttribute('aria-expanded', isOpen);
+  }
+  function closeCases(){
+    const el = document.getElementById('navCases');
+    el.classList.remove('open');
+    el.querySelector('.nav-cases-trigger').setAttribute('aria-expanded', false);
+  }
+  document.addEventListener('click', (e) => {
+    if(!document.getElementById('navCases').contains(e.target)) closeCases();
   });
 </script>
 
