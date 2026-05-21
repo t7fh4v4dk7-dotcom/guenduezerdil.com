@@ -964,7 +964,7 @@
 
       <!-- Coca-Cola -->
       <div class="acc-item is-open" id="case-coke">
-        <button class="acc-trigger" onclick="toggleAcc('case-coke')" aria-expanded="true">
+        <button type="button" class="acc-trigger" onclick="toggleAcc('case-coke')" aria-expanded="true">
           <div class="acc-trigger-left">
             <span class="acc-client">Coca-Cola</span>
             <div class="acc-tags">
@@ -1000,7 +1000,7 @@
 
       <!-- Nike -->
       <div class="acc-item" id="case-nike">
-        <button class="acc-trigger" onclick="toggleAcc('case-nike')" aria-expanded="false">
+        <button type="button" class="acc-trigger" onclick="toggleAcc('case-nike')" aria-expanded="false">
           <div class="acc-trigger-left">
             <span class="acc-client">Nike</span>
             <div class="acc-tags">
@@ -1036,7 +1036,7 @@
 
       <!-- o2o -->
       <div class="acc-item" id="case-o2o">
-        <button class="acc-trigger" onclick="toggleAcc('case-o2o')" aria-expanded="false">
+        <button type="button" class="acc-trigger" onclick="toggleAcc('case-o2o')" aria-expanded="false">
           <div class="acc-trigger-left">
             <span class="acc-client">o<sub style="font-size:0.55em;vertical-align:baseline">2</sub>o</span>
             <div class="acc-tags">
@@ -1075,7 +1075,7 @@
 
       <!-- DeinAdieu -->
       <div class="acc-item" id="case-deinadieu">
-        <button class="acc-trigger" onclick="toggleAcc('case-deinadieu')" aria-expanded="false">
+        <button type="button" class="acc-trigger" onclick="toggleAcc('case-deinadieu')" aria-expanded="false">
           <div class="acc-trigger-left">
             <span class="acc-client">DeinAdieu</span>
             <div class="acc-tags">
@@ -1091,15 +1091,18 @@
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
               <div class="case-image-full">
-                <img src="images/deinadieu-preview.jpg" alt="DeinAdieu Erbschaftsreport" loading="lazy">
+                <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
               </div>
-              <div class="case-caption">
-                <a href="deinadieu_final.html"
-                  style="color:#6e6e6e; text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:color .2s ease;"
-                  onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#6e6e6e'">
-                  Vollständigen Case ansehen <span style="font-size:13px;">↗</span>
-                </a>
+              <div class="case-images-row">
+                <img src="images/deinadieu-revision.jpg" alt="Erbrechtsrevision Infografik" loading="lazy">
+                <img src="images/deinadieu-chart.jpg" alt="Testamentspenden nach Bereichen" loading="lazy">
+                <img src="images/deinadieu-ngo.jpg" alt="NGO Verteilung" loading="lazy">
               </div>
+              <div class="case-caption">Ausgewählte Seiten — Layout &amp; Datenvisualisierung</div>
+              <div class="case-image-full">
+                <img src="images/deinadieu-before-after.jpg" alt="Begünstigte vor und nach der Revision" loading="lazy">
+              </div>
+              <div class="case-caption">Begünstigte vor &amp; nach der Erbrechtsrevision 2023</div>
             </div>
           </div>
         </div>
@@ -1266,19 +1269,16 @@
       item.classList.toggle('is-open', isTarget);
       item.querySelector('.acc-trigger').setAttribute('aria-expanded', isTarget);
     });
-    // Scroll to section
     const el = document.getElementById(id);
-    if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if(el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 50);
   }
   function toggleAcc(id){
     const item = document.getElementById(id);
     const isOpen = item.classList.contains('is-open');
-    // Close all
     document.querySelectorAll('.acc-item').forEach(i => {
       i.classList.remove('is-open');
       i.querySelector('.acc-trigger').setAttribute('aria-expanded', false);
     });
-    // Open clicked if it was closed
     if(!isOpen){
       item.classList.add('is-open');
       item.querySelector('.acc-trigger').setAttribute('aria-expanded', true);
