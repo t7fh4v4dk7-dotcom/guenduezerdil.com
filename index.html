@@ -471,58 +471,28 @@
     margin-bottom: clamp(36px, 6vh, 72px);
   }
 
-  /* DeinAdieu editorial layout */
-  .da-row-main {
+  /* DeinAdieu spread layout */
+  .da-spread {
     display: grid;
-    grid-template-columns: 1fr 1.6fr;
-    gap: 3px;
-    margin-bottom: 3px;
-    background: #000;
-  }
-  .da-col-cover {
-    background: #f0efed;
-    display: flex;
-    align-items: stretch;
-  }
-  .da-col-cover img {
-    width: 100%;
-    display: block;
-    object-fit: cover;
-  }
-  .da-col-crops {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-  }
-  .da-crop-item {
-    background: #fff;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    padding: clamp(16px, 2vw, 40px);
-  }
-  .da-crop-item img {
-    width: 100%;
-    display: block;
-  }
-  .da-row-full {
-    background: #fff;
-    padding: clamp(20px, 3vw, 56px) clamp(24px, 4vw, 72px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2vw, 32px);
+    background: #1a1a1a;
+    padding: clamp(24px, 4vw, 64px);
     margin-bottom: clamp(12px, 2vh, 24px);
   }
-  .da-row-full img {
+  .da-page {
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+  .da-page img {
     width: 100%;
     display: block;
   }
-  @media (max-width: 640px) {
-    .da-row-main {
+  @media (max-width: 760px) {
+    .da-spread {
       grid-template-columns: 1fr;
-    }
-    .da-col-cover {
-      max-height: 50vw;
-      overflow: hidden;
+      gap: clamp(12px, 3vw, 24px);
+      padding: clamp(16px, 4vw, 32px);
     }
   }
   @media (max-width: 700px) {
@@ -1154,24 +1124,16 @@
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
 
-              <!-- Row 1: Cover full page left + two crops right -->
-              <div class="da-row-main">
-                <div class="da-col-cover">
-                  <img src="images/da-full-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
+              <div class="da-spread">
+                <div class="da-page">
+                  <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
                 </div>
-                <div class="da-col-crops">
-                  <div class="da-crop-item">
-                    <img src="images/da-crop-bubbles.jpg" alt="Erbrechtsrevision: Veränderung der freien Erbquote" loading="lazy">
-                  </div>
-                  <div class="da-crop-item">
-                    <img src="images/da-crop-pie.jpg" alt="Verteilung des Erbes" loading="lazy">
-                  </div>
+                <div class="da-page">
+                  <img src="images/deinadieu-chart.jpg" alt="Testamentspenden nach NGO-Bereichen" loading="lazy">
                 </div>
-              </div>
-
-              <!-- Row 2: Bar chart full-width crop -->
-              <div class="da-row-full">
-                <img src="images/da-crop-bars.jpg" alt="Testamentspenden nach NGO-Tätigkeitsbereichen" loading="lazy">
+                <div class="da-page">
+                  <img src="images/deinadieu-before-after.jpg" alt="Erbrechtsrevision: Veränderung der freien Erbquote" loading="lazy">
+                </div>
               </div>
 
               <div class="case-caption">Layout &amp; Datenvisualisierung — 68 Seiten, Print &amp; Digital</div>
