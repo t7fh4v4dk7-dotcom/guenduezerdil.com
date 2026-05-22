@@ -471,6 +471,31 @@
     margin-bottom: clamp(36px, 6vh, 72px);
   }
 
+  /* DeinAdieu spread layout */
+  .da-spread {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2vw, 32px);
+    background: #1a1a1a;
+    padding: clamp(24px, 4vw, 64px);
+    margin-bottom: clamp(12px, 2vh, 24px);
+  }
+  .da-page {
+    background: #fff;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  }
+  .da-page img {
+    width: 100%;
+    display: block;
+  }
+  @media (max-width: 760px) {
+    .da-spread {
+      grid-template-columns: 1fr;
+      gap: clamp(12px, 3vw, 24px);
+      padding: clamp(16px, 4vw, 32px);
+    }
+  }
+
   /* DeinAdieu crop layout */
   .da-crop {
     width: 100%;
@@ -1110,6 +1135,18 @@
               <p class="acc-desc">
                 Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
               </p>
+
+              <div class="da-spread">
+                <div class="da-page">
+                  <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
+                </div>
+                <div class="da-page">
+                  <img src="images/deinadieu-chart.jpg" alt="Testamentspenden nach NGO-Bereichen" loading="lazy">
+                </div>
+                <div class="da-page">
+                  <img src="images/deinadieu-before-after.jpg" alt="Erbrechtsrevision: Veränderung der freien Erbquote" loading="lazy">
+                </div>
+              </div>
 
               <div class="da-crop">
                 <img src="images/da-crop-bubbles.jpg" alt="Datenvisualisierung — Erbschaftsreport Schweiz" loading="lazy">
