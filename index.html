@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de"><head>
-<!-- FINAL-DEINADIEU-FIX-2026-05-23-21-STRICT-INLINE-FINAL-GRID -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gündüz Erdil — Creative Director</title>
@@ -651,202 +650,27 @@
   }
 
 
-
-  /* ——— DeinAdieu Report Inline ——— */
-  .da-report{
-    background:#f7f6f3;
-    color:#111110;
-    border:1px solid #1a1a1a;
-    margin-bottom:clamp(24px,4vh,48px);
-    overflow:visible;
+  /* ——— DeinAdieu exact embedded report ——— */
+  .deinadieu-exact-case{
+    padding-bottom: clamp(48px, 8vh, 100px);
   }
-  .da-report-intro{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:clamp(24px,5vw,80px);
-    align-items:end;
-    padding:clamp(32px,6vw,96px);
-    border-bottom:1px solid #e2e0da;
+  .deinadieu-exact-wrap{
+    width: 100%;
+    background: #fff;
+    border: 1px solid #1a1a1a;
+    overflow: hidden;
   }
-  .da-kicker{
-    font-size:10px;
-    letter-spacing:.16em;
-    text-transform:uppercase;
-    color:#888783;
-    margin-bottom:18px;
+  .deinadieu-exact-frame{
+    display: block;
+    width: 100%;
+    min-height: 3200px;
+    border: 0;
+    background: #fff;
+    overflow: hidden;
   }
-  .da-report-intro h3{
-    font-family:"Times New Roman", Georgia, serif;
-    font-size:clamp(44px,7vw,96px);
-    font-style:italic;
-    font-weight:400;
-    line-height:.95;
-    letter-spacing:-.04em;
-  }
-  .da-report-intro > p{
-    color:#888783;
-    font-size:14px;
-    line-height:1.75;
-    max-width:420px;
-  }
-  .da-stats{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border-bottom:1px solid #e2e0da;
-  }
-  .da-stats div{
-    padding:clamp(20px,3vw,42px);
-    border-right:1px solid #e2e0da;
-  }
-  .da-stats div:last-child{border-right:none;}
-  .da-stats strong{
-    display:block;
-    font-family:"Times New Roman", Georgia, serif;
-    font-size:clamp(32px,4vw,56px);
-    font-style:italic;
-    font-weight:400;
-    line-height:1;
-    color:#5B3FA0;
-    margin-bottom:8px;
-  }
-  .da-stats span{
-    display:block;
-    color:#888783;
-    font-size:11px;
-    line-height:1.4;
-    max-width:170px;
-  }
-  .da-report-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    border-bottom:1px solid #e2e0da;
-  }
-  .da-report-image{
-    margin:0;
-    background:#fff;
-    border-bottom:1px solid #e2e0da;
-  }
-  .da-report-grid .da-report-image{
-    border-bottom:none;
-    border-right:1px solid #e2e0da;
-  }
-  .da-report-grid .da-report-image:last-child{border-right:none;}
-  .da-report-image img{
-    width:100%;
-    height:auto;
-    display:block;
-  }
-  .da-report-image figcaption{
-    padding:14px 20px;
-    font-size:10px;
-    letter-spacing:.12em;
-    text-transform:uppercase;
-    color:#888783;
-    border-top:1px solid #e2e0da;
-  }
-  .da-report-image--hero img,
-  .da-report-image--wide img{
-    width:100%;
-  }
-  @media (max-width:900px){
-    .da-report-intro{grid-template-columns:1fr;padding:32px 20px;}
-    .da-stats{grid-template-columns:1fr 1fr;}
-    .da-stats div{border-bottom:1px solid #e2e0da;}
-    .da-report-grid{grid-template-columns:1fr;}
-    .da-report-grid .da-report-image{border-right:none;border-bottom:1px solid #e2e0da;}
-  }
-
-
-  /* ——— DeinAdieu Image Proportion Fix ——— */
-  .da-report-image{
-    padding:clamp(24px,3vw,48px);
-  }
-  .da-report-image img{
-    width:100%;
-    max-width:1000px;
-    height:auto;
-    margin:0 auto;
-    display:block;
-  }
-  .da-report-image--hero img,
-  .da-report-image--wide img{
-    max-width:1040px;
-  }
-  .da-report-grid .da-report-image img{
-    max-width:620px;
-  }
-  .da-report-image figcaption{
-    max-width:1000px;
-    margin:14px auto 0;
-  }
-  @media (max-width:900px){
-    .da-report-image{
-      padding:20px;
-    }
-    .da-report-grid .da-report-image img,
-    .da-report-image--hero img,
-    .da-report-image--wide img,
-    .da-report-image img{
-      max-width:100%;
-    }
-  }
-
-
-  .da-report-grid--final .da-report-image img{
-    max-width:620px;
-  }
-  @media (max-width:900px){
-    .da-report-grid--final{
-      grid-template-columns:1fr;
-    }
-    .da-report-grid--final .da-report-image img{
-      max-width:100%;
-    }
-  }
-
-
-
-  /* ——— FINAL FIX 2026-05-23: DeinAdieu final spread only ——— */
-  .da-report-grid--final{
-    display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  }
-  .da-report-grid--final .da-report-image{
-    padding:clamp(24px,3vw,48px) !important;
-  }
-  .da-report-grid--final .da-report-image img{
-    width:100% !important;
-    max-width:560px !important;
-    height:auto !important;
-    margin:0 auto !important;
-    display:block !important;
-  }
-  @media (max-width:900px){
-    .da-report-grid--final{
-      grid-template-columns:1fr !important;
-    }
-    .da-report-grid--final .da-report-image img{
-      max-width:100% !important;
-    }
-  }
-
-
-  /* STRICT OVERRIDE: final DeinAdieu spread stays side by side */
-  .da-report-grid--final{
-    display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-  }
-  .da-report-grid--final .da-report-image{
-    min-width:0 !important;
-  }
-  .da-report-grid--final .da-report-image img{
-    max-width:560px !important;
-    width:100% !important;
-    margin:0 auto !important;
-  }
-  @media (max-width:560px){
-    .da-report-grid--final{
-      grid-template-columns:1fr !important;
+  @media (max-width: 900px){
+    .deinadieu-exact-frame{
+      min-height: 4200px;
     }
   }
 
@@ -1315,78 +1139,29 @@
           <div class="acc-trigger-left">
             <span class="acc-client">DeinAdieu</span>
             <div class="acc-tags">
-              <span>Editorial Design</span><span>Research</span><span>Information Design</span>
+              <span>Editorial Design</span><span>Datenvisualisierung</span><span>Research</span>
             </div>
           </div>
           <div class="acc-icon" aria-hidden="true"></div>
         </button>
         <div class="acc-body">
           <div class="acc-body-inner">
-            <div class="acc-content">
-              <p class="acc-desc">
-                Wissenschaftlicher Report über das Testierverhalten von 17.000 Privatpersonen und 142 NGOs in der Schweiz. Zwei Studien, 68 Seiten. In Zusammenarbeit mit der Universität Lausanne.
-              </p>
-
-              <div class="da-report">
-                <div class="da-report-intro">
-                  <div>
-                    <p class="da-kicker">Erbschaftsreport Schweiz</p>
-                    <h3>Research sichtbar machen.</h3>
-                  </div>
-                  <p>Ein Editorial System für einen datengetriebenen Report über Erbschaftsverhalten, Nachlassfundraising und die Wirkung der Schweizer Erbrechtsrevision.</p>
-                </div>
-
-                <div class="da-stats">
-                  <div><strong>17.000</strong><span>Analysierte Testamentvorlagen</span></div>
-                  <div><strong>142</strong><span>Befragte Schweizer NGOs</span></div>
-                  <div><strong>+33%</strong><span>Wachstum Testamenteinnahmen</span></div>
-                  <div><strong>4%</strong><span>Des Erbvolumens fliesst an NGOs</span></div>
-                </div>
-
-                <figure class="da-report-image da-report-image--hero">
-                  <img src="images/deinadieu-cover.jpg" alt="DeinAdieu Erbschaftsreport Cover" loading="lazy">
-                  <figcaption>Cover und Editorial Einstieg</figcaption>
-                </figure>
-
-                <div class="da-report-grid">
-                  <figure class="da-report-image">
-                    <img src="images/deinadieu-revision.jpg" alt="Freie Erbquote vor und nach der Erbrechtsrevision" loading="lazy">
-                    <figcaption>Erbrechtsrevision 2023 — freie Erbquote</figcaption>
-                  </figure>
-                  <figure class="da-report-image">
-                    <img src="images/deinadieu-beneficiaries.jpg" alt="Begünstigte vor und nach der Erbrechtsrevision" loading="lazy">
-                    <figcaption>Begünstigte vor und nach der Revision</figcaption>
-                  </figure>
-                </div>
-
-                <div class="da-report-grid">
-                  <figure class="da-report-image">
-                    <img src="images/deinadieu-family.jpg" alt="NGOs im Testament nach Familienkonstellation" loading="lazy">
-                    <figcaption>NGOs nach Familienkonstellation</figcaption>
-                  </figure>
-                  <figure class="da-report-image">
-                    <img src="images/deinadieu-age-gender.jpg" alt="NGOs im Testament nach Alter und Geschlecht" loading="lazy">
-                    <figcaption>Alter und Geschlecht</figcaption>
-                  </figure>
-                </div>
-
-                <div class="da-report-grid da-report-grid--final" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));">
-                  <figure class="da-report-image" style="min-width:0;">
-                    <img src="images/deinadieu-personas.jpg" alt="Personengruppen mit höchster NGO Berücksichtigung" loading="lazy">
-                    <figcaption>Human Patterns — Personengruppen mit höchster Berücksichtigung</figcaption>
-                  </figure>
-                  <figure class="da-report-image" style="min-width:0;">
-                    <img src="images/deinadieu-quote.jpg" alt="Editorial Quote Seite aus dem DeinAdieu Report" loading="lazy">
-                    <figcaption>Editorial Rhythmus und wissenschaftliche Einordnung</figcaption>
-                  </figure>
-                </div>
+            <div class="acc-content deinadieu-exact-case">
+              <div class="deinadieu-exact-wrap">
+                <iframe
+                  class="deinadieu-exact-frame"
+                  title="DeinAdieu Erbschaftsreport Schweiz"
+                  src="deinadieu_final.html"
+                  loading="lazy"
+                  scrolling="no"
+                  onload="resizeDeinAdieuFrame(this)">
+                </iframe>
               </div>
-
-              <div class="case-caption">Layout, Informationsarchitektur &amp; Datenvisualisierung — 68 Seiten, Print &amp; Digital</div>
             </div>
           </div>
         </div>
       </div>
+
     </section>
 
     <!-- Footer / CTA -->
