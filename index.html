@@ -554,10 +554,6 @@
   }
   .case-images img{
     width:100%; height:100%; object-fit:cover; display:block;
-    .deinadieu-case img{
-    max-width:1000px;
-    margin:0 auto;
-}
     aspect-ratio: auto;
     background: #0d0d0d;
   }
@@ -752,13 +748,7 @@
     width:100%;
   }
   @media (max-width:900px){
-.da-report-intro{
-    padding:32px 20px;
-}
-
-.dd-grid.one{
-    grid-template-columns:repeat(2,1fr);
-}
+    .da-report-intro{grid-template-columns:1fr;padding:32px 20px;}
     .da-stats{grid-template-columns:1fr 1fr;}
     .da-stats div{border-bottom:1px solid #e2e0da;}
     .da-report-grid{grid-template-columns:1fr;}
