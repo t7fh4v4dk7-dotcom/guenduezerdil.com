@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de"><head>
+<!-- FINAL-DEINADIEU-FIX-2026-05-23-21-STRICT-INLINE-FINAL-GRID -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Gündüz Erdil — Creative Director</title>
@@ -790,6 +791,65 @@
     }
   }
 
+
+  .da-report-grid--final .da-report-image img{
+    max-width:620px;
+  }
+  @media (max-width:900px){
+    .da-report-grid--final{
+      grid-template-columns:1fr;
+    }
+    .da-report-grid--final .da-report-image img{
+      max-width:100%;
+    }
+  }
+
+
+
+  /* ——— FINAL FIX 2026-05-23: DeinAdieu final spread only ——— */
+  .da-report-grid--final{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .da-report-grid--final .da-report-image{
+    padding:clamp(24px,3vw,48px) !important;
+  }
+  .da-report-grid--final .da-report-image img{
+    width:100% !important;
+    max-width:560px !important;
+    height:auto !important;
+    margin:0 auto !important;
+    display:block !important;
+  }
+  @media (max-width:900px){
+    .da-report-grid--final{
+      grid-template-columns:1fr !important;
+    }
+    .da-report-grid--final .da-report-image img{
+      max-width:100% !important;
+    }
+  }
+
+
+  /* STRICT OVERRIDE: final DeinAdieu spread stays side by side */
+  .da-report-grid--final{
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+  .da-report-grid--final .da-report-image{
+    min-width:0 !important;
+  }
+  .da-report-grid--final .da-report-image img{
+    max-width:560px !important;
+    width:100% !important;
+    margin:0 auto !important;
+  }
+  @media (max-width:560px){
+    .da-report-grid--final{
+      grid-template-columns:1fr !important;
+    }
+  }
+
   /* ——— Footer ——— */
   section.footer{
     padding-top: clamp(60px, 10vh, 120px);
@@ -1310,15 +1370,16 @@
                   </figure>
                 </div>
 
-                <figure class="da-report-image da-report-image--wide">
-                  <img src="images/deinadieu-personas.jpg" alt="Personengruppen mit höchster NGO Berücksichtigung" loading="lazy">
-                  <figcaption>Human Patterns — Personengruppen mit höchster Berücksichtigung</figcaption>
-                </figure>
-
-                <figure class="da-report-image da-report-image--wide">
-                  <img src="images/deinadieu-quote.jpg" alt="Editorial Quote Seite aus dem DeinAdieu Report" loading="lazy">
-                  <figcaption>Editorial Rhythmus und wissenschaftliche Einordnung</figcaption>
-                </figure>
+                <div class="da-report-grid da-report-grid--final" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));">
+                  <figure class="da-report-image" style="min-width:0;">
+                    <img src="images/deinadieu-personas.jpg" alt="Personengruppen mit höchster NGO Berücksichtigung" loading="lazy">
+                    <figcaption>Human Patterns — Personengruppen mit höchster Berücksichtigung</figcaption>
+                  </figure>
+                  <figure class="da-report-image" style="min-width:0;">
+                    <img src="images/deinadieu-quote.jpg" alt="Editorial Quote Seite aus dem DeinAdieu Report" loading="lazy">
+                    <figcaption>Editorial Rhythmus und wissenschaftliche Einordnung</figcaption>
+                  </figure>
+                </div>
               </div>
 
               <div class="case-caption">Layout, Informationsarchitektur &amp; Datenvisualisierung — 68 Seiten, Print &amp; Digital</div>
