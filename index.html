@@ -755,6 +755,41 @@
     .da-report-grid .da-report-image{border-right:none;border-bottom:1px solid #e2e0da;}
   }
 
+
+  /* ——— DeinAdieu Image Proportion Fix ——— */
+  .da-report-image{
+    padding:clamp(24px,3vw,48px);
+  }
+  .da-report-image img{
+    width:100%;
+    max-width:1000px;
+    height:auto;
+    margin:0 auto;
+    display:block;
+  }
+  .da-report-image--hero img,
+  .da-report-image--wide img{
+    max-width:1040px;
+  }
+  .da-report-grid .da-report-image img{
+    max-width:620px;
+  }
+  .da-report-image figcaption{
+    max-width:1000px;
+    margin:14px auto 0;
+  }
+  @media (max-width:900px){
+    .da-report-image{
+      padding:20px;
+    }
+    .da-report-grid .da-report-image img,
+    .da-report-image--hero img,
+    .da-report-image--wide img,
+    .da-report-image img{
+      max-width:100%;
+    }
+  }
+
   /* ——— Footer ——— */
   section.footer{
     padding-top: clamp(60px, 10vh, 120px);
