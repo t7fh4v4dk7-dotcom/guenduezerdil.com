@@ -554,6 +554,10 @@
   }
   .case-images img{
     width:100%; height:100%; object-fit:cover; display:block;
+    .deinadieu-case img{
+    max-width:1000px;
+    margin:0 auto;
+}
     aspect-ratio: auto;
     background: #0d0d0d;
   }
@@ -748,46 +752,17 @@
     width:100%;
   }
   @media (max-width:900px){
-    .da-report-intro{grid-template-columns:1fr;padding:32px 20px;}
+.da-report-intro{
+    padding:32px 20px;
+}
+
+.dd-grid.one{
+    grid-template-columns:repeat(2,1fr);
+}
     .da-stats{grid-template-columns:1fr 1fr;}
     .da-stats div{border-bottom:1px solid #e2e0da;}
     .da-report-grid{grid-template-columns:1fr;}
     .da-report-grid .da-report-image{border-right:none;border-bottom:1px solid #e2e0da;}
-  }
-
-
-  /* ——— DeinAdieu Image Proportion Fix ——— */
-  .da-report-image{
-    padding:clamp(24px,3vw,48px);
-  }
-  .da-report-image img{
-    width:100%;
-    max-width:1000px;
-    height:auto;
-    margin:0 auto;
-    display:block;
-  }
-  .da-report-image--hero img,
-  .da-report-image--wide img{
-    max-width:1040px;
-  }
-  .da-report-grid .da-report-image img{
-    max-width:620px;
-  }
-  .da-report-image figcaption{
-    max-width:1000px;
-    margin:14px auto 0;
-  }
-  @media (max-width:900px){
-    .da-report-image{
-      padding:20px;
-    }
-    .da-report-grid .da-report-image img,
-    .da-report-image--hero img,
-    .da-report-image--wide img,
-    .da-report-image img{
-      max-width:100%;
-    }
   }
 
   /* ——— Footer ——— */
