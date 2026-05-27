@@ -259,56 +259,18 @@
   }
 
   /* ——— Services intro text ——— */
-  .services-intro{
-    font-size: 26px;
-    line-height: 1.45;
-    letter-spacing: -0.015em;
-    color: #fff;
-    max-width: 52ch;
-    margin-bottom: clamp(48px, 8vh, 96px);
-  }
 
-  .services-grid{
-    display:grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 0;
-    border-top: 1px solid #1a1a1a;
-  }
-  .service{
-    grid-column: span 4;
-    padding: clamp(40px, 6vh, 72px) 0 clamp(40px, 6vh, 72px) 0;
-    position:relative;
-    border-bottom: 1px solid #1a1a1a;
-    display:flex; flex-direction: column; gap: clamp(28px, 4vh, 48px);
-    min-height: clamp(360px, 48vh, 520px);
-  }
+
+
+
   .service + .service{ border-left: 1px solid #1a1a1a; padding-left: clamp(28px, 3vw, 56px); }
   .service:not(:last-child){ padding-right: clamp(28px, 3vw, 56px); }
 
-  .service .num{
-    font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase;
-    color: #6e6e6e;
-  }
-  .service h3{
-    font-size: clamp(28px, 3.4vw, 52px);
-    line-height: 1.0;
-    letter-spacing: -0.035em;
-    font-weight: 500;
-    max-width: 14ch;
-    margin-top: auto;
-  }
-  .service p{
-    font-size: clamp(14px, 1vw, 16px);
-    line-height: 1.55;
-    color: #a8a8a8;
-    max-width: 32ch;
-  }
-  .service .topics{
-    display:flex; flex-wrap: wrap; gap: 8px 14px;
-    font-size: 12px; color:#6e6e6e;
-    letter-spacing: 0.02em;
-  }
-  .service .topics span{ position:relative; }
+
+
+
+
+
   .service .topics span + span::before{
     content:""; position:absolute; left:-9px; top:50%;
     width:3px; height:3px; background:#3a3a3a; border-radius:50%;
@@ -783,8 +745,8 @@
 
   /* ——— Responsive ——— */
   @media (max-width: 880px){
-    .services-grid{ grid-template-columns: 1fr; }
-    .service{ grid-column: 1 / -1; min-height: auto; padding: 40px 0; }
+  
+  
     .service + .service{ border-left: none; padding-left: 0; }
     .service:not(:last-child){ padding-right: 0; }
     .about-grid > .col-left{ grid-column: 1 / -1; }
@@ -861,6 +823,39 @@
   }
   .footer-legal-nav button:hover{ color: #fff; }
 
+
+  /* ——— Leistungen — Verstehen / Finden / Machen ——— */
+  .ls-steps{display:flex;flex-direction:column;}
+  .ls-step{
+    display:grid;
+    grid-template-columns:48px 1fr auto;
+    gap:0 32px;
+    align-items:start;
+    padding:clamp(24px,4vh,40px) 0;
+    border-top:.5px solid #1a1a1a;
+  }
+  .ls-step:last-child{border-bottom:.5px solid #1a1a1a;}
+  .ls-n{font-size:11px;color:#3a3a3a;letter-spacing:.06em;padding-top:6px;}
+  .ls-body{display:flex;flex-direction:column;gap:10px;}
+  .ls-verb{
+    font-size:clamp(28px,5vw,56px);
+    font-weight:500;
+    letter-spacing:-.04em;
+    line-height:.95;
+    color:#fff;
+  }
+  .ls-text{font-size:clamp(14px,1.1vw,16px);line-height:1.65;color:#6e6e6e;max-width:44ch;}
+  .ls-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
+  .ls-tags span{
+    font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+    color:#3a3a3a;border:.5px solid #1a1a1a;padding:3px 8px;
+  }
+  .ls-arrow{font-size:11px;color:#2a2a2a;padding-top:8px;}
+
+  @media(max-width:560px){
+    .ls-step{grid-template-columns:36px 1fr;gap:0 16px;}
+    .ls-arrow{display:none;}
+  }
 </style>
 <script type="application/ld+json">
 {
@@ -951,39 +946,38 @@
         <div class="label"><span class="num">02</span><span>Leistungen</span></div>
       </div>
 
-      <!-- TO-DO 2: Neuer Intro-Text vor den Leistungen -->
-      <p class="services-intro reveal">
-        Ich entwickle und gestalte Kommunikation die wirkt. Ob Kampagne, Logo, TV-Spot oder Social Media.
-      </p>
+      <div class="ls-steps">
 
-      <div class="services-grid">
-        <article class="service reveal">
-          <div class="num">01 / 03</div>
-          <!-- TO-DO 1: Bindestrich entfernt, Satz aufgesplittet -->
-          <p>Erst verstehen. Was willst du wirklich sagen. Und zu wem? Bevor wir anfangen, wissen wir warum.</p>
-          <div class="topics">
-            <span>Positionierung</span><span>Tonalität</span><span>Workshops</span>
+        <div class="ls-step reveal">
+          <span class="ls-n">01</span>
+          <div class="ls-body">
+            <span class="ls-verb">Verstehen.</span>
+            <p class="ls-text">Was willst du wirklich sagen, und zu wem? Bevor wir anfangen, wissen wir warum.</p>
+            <div class="ls-tags"><span>Positionierung</span><span>Tonalität</span><span>Workshops</span></div>
           </div>
-          <h3>Strategie<br>&amp; Beratung</h3>
-        </article>
+          <span class="ls-arrow">→</span>
+        </div>
 
-        <article class="service reveal" style="--d:120ms">
-          <div class="num">02 / 03</div>
-          <p>Die Idee ist nicht das Plakat. Sie ist der Gedanke dahinter. Manchmal eine Kampagne. Manchmal ein einziger Satz.</p>
-          <div class="topics">
-            <span>Kampagnen</span><span>Copywriting</span><span>Naming</span>
+        <div class="ls-step reveal" style="--d:120ms">
+          <span class="ls-n">02</span>
+          <div class="ls-body">
+            <span class="ls-verb">Finden.</span>
+            <p class="ls-text">Die Idee ist nicht das Plakat. Sie ist der Gedanke dahinter. Manchmal eine Kampagne. Manchmal ein einziger Satz.</p>
+            <div class="ls-tags"><span>Kampagnen</span><span>Konzept</span><span>Naming</span></div>
           </div>
-          <h3>Konzept<br>&amp; Kreation</h3>
-        </article>
+          <span class="ls-arrow">→</span>
+        </div>
 
-        <article class="service reveal" style="--d:240ms">
-          <div class="num">03 / 03</div>
-          <p>Vom Gedanken zum fertigen Stück. Logo, Kampagne, Print, Digital. Allein oder mit den richtigen Partnern.</p>
-          <div class="topics">
-            <span>Art Direction</span><span>Film</span><span>Print</span><span>Digital</span>
+        <div class="ls-step reveal" style="--d:240ms">
+          <span class="ls-n">03</span>
+          <div class="ls-body">
+            <span class="ls-verb">Machen.</span>
+            <p class="ls-text">Vom Gedanken zum fertigen Stück. Logo, Kampagne, Print, Digital. Allein oder mit den richtigen Partnern.</p>
+            <div class="ls-tags"><span>Art Direction</span><span>Film</span><span>Print</span><span>Digital</span></div>
           </div>
-          <h3>Umsetzung</h3>
-        </article>
+          <span class="ls-arrow">→</span>
+        </div>
+
       </div>
     </section>
 
@@ -1104,16 +1098,26 @@
         </button>
         <div class="acc-body">
           <div class="acc-body-inner">
-            <div class="acc-content deinadieu-exact-case">
-              <div class="deinadieu-exact-wrap">
-                <iframe
-                  class="deinadieu-exact-frame"
-                  title="o2o Doodles Launch Kampagne"
-                  src="o2o_case.html"
-                  loading="eager"
-                  scrolling="no"
-                  onload="prepareDeinAdieuFrame(this)">
-                </iframe>
+            <div class="acc-content">
+              <p class="acc-desc">
+                Wie bewirbt man einen Tarif, ohne über Kosten zu reden? Die Idee: Doodles. Telefonkritzeleien die entstehen, wenn Menschen entspannt am Telefon plaudern. Eine Idee so unverwechselbar, dass die Kampagne am Ende keinen Absender mehr brauchte.
+              </p>
+              <div class="case-images-row">
+                <img src="images/o2o_teaser_1.jpg" alt="o2o Teaser 1" loading="lazy">
+                <img src="images/o2o_teaser_2.jpg" alt="o2o Teaser 2" loading="lazy">
+                <img src="images/o2o_teaser_3.jpg" alt="o2o Teaser 3" loading="lazy">
+              </div>
+              <div class="case-caption">Teaserkampagne</div>
+              <div class="case-images-portrait">
+                <img src="images/print_01.jpg" alt="o2o Print 1" loading="lazy">
+                <img src="images/print_02.jpg" alt="o2o Print 2" loading="lazy">
+                <img src="images/print_03.jpg" alt="o2o Print 3" loading="lazy">
+              </div>
+              <div class="case-caption">Printkampagne</div>
+              <div class="case-film-embed">
+                <div style="padding:56.25% 0 0 0;position:relative;">
+                  <iframe src="https://player.vimeo.com/video/1194074642?badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="o2o Doodles Launch Kampagne"></iframe>
+                </div>
               </div>
             </div>
           </div>
