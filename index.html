@@ -825,36 +825,62 @@
 
 
   /* ——— Leistungen — Verstehen / Finden / Machen ——— */
-  .ls-steps{display:flex;flex-direction:column;}
+  .ls-steps{display:flex;flex-direction:column;width:100%;}
   .ls-step{
     display:grid;
-    grid-template-columns:48px 1fr auto;
-    gap:0 32px;
+    grid-template-columns:72px 1fr;
+    gap:0 clamp(24px,3vw,48px);
     align-items:start;
-    padding:clamp(24px,4vh,40px) 0;
+    padding:clamp(40px,6vh,64px) 0;
     border-top:.5px solid #1a1a1a;
+    position:relative;
+    width:100%;
   }
   .ls-step:last-child{border-bottom:.5px solid #1a1a1a;}
-  .ls-n{font-size:11px;color:#3a3a3a;letter-spacing:.06em;padding-top:6px;}
-  .ls-body{display:flex;flex-direction:column;gap:10px;}
+  .ls-ring-col{
+    display:flex;flex-direction:column;align-items:center;
+    position:relative;padding-top:6px;
+  }
+  .ls-ring{
+    width:36px;height:36px;border-radius:50%;
+    border:1px solid #333;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;position:relative;z-index:2;
+    background:#000;
+  }
+  .ls-ring span{font-size:10px;color:#3a3a3a;letter-spacing:.04em;}
+  .ls-step:not(:last-child) .ls-ring-col::after{
+    content:'';
+    position:absolute;
+    top:42px;left:50%;transform:translateX(-50%);
+    width:1px;
+    height:calc(100% + 64px);
+    background:#1e1e1e;
+    z-index:1;
+  }
+  .ls-body{display:flex;flex-direction:column;gap:14px;}
   .ls-verb{
-    font-size:clamp(28px,5vw,56px);
+    font-size:clamp(56px,8vw,120px);
     font-weight:500;
     letter-spacing:-.04em;
-    line-height:.95;
+    line-height:.9;
     color:#fff;
+    display:block;
   }
-  .ls-text{font-size:clamp(14px,1.1vw,16px);line-height:1.65;color:#6e6e6e;max-width:44ch;}
+  .ls-text{
+    font-size:clamp(15px,1.2vw,18px);
+    line-height:1.65;
+    color:#6e6e6e;
+    max-width:52ch;
+  }
   .ls-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;}
   .ls-tags span{
     font-size:10px;letter-spacing:.08em;text-transform:uppercase;
     color:#3a3a3a;border:.5px solid #1a1a1a;padding:3px 8px;
   }
-  .ls-arrow{font-size:11px;color:#2a2a2a;padding-top:8px;}
-
   @media(max-width:560px){
-    .ls-step{grid-template-columns:36px 1fr;gap:0 16px;}
-    .ls-arrow{display:none;}
+    .ls-step{grid-template-columns:52px 1fr;gap:0 16px;}
+    .ls-verb{font-size:clamp(44px,12vw,72px);}
   }
 </style>
 <script type="application/ld+json">
@@ -949,33 +975,36 @@
       <div class="ls-steps">
 
         <div class="ls-step reveal">
-          <span class="ls-n">01</span>
+          <div class="ls-ring-col">
+            <div class="ls-ring"><span>01</span></div>
+          </div>
           <div class="ls-body">
             <span class="ls-verb">Verstehen.</span>
             <p class="ls-text">Was willst du wirklich sagen, und zu wem? Bevor wir anfangen, wissen wir warum.</p>
             <div class="ls-tags"><span>Positionierung</span><span>Tonalität</span><span>Workshops</span></div>
           </div>
-          <span class="ls-arrow">→</span>
         </div>
 
         <div class="ls-step reveal" style="--d:120ms">
-          <span class="ls-n">02</span>
+          <div class="ls-ring-col">
+            <div class="ls-ring"><span>02</span></div>
+          </div>
           <div class="ls-body">
             <span class="ls-verb">Finden.</span>
             <p class="ls-text">Die Idee ist nicht das Plakat. Sie ist der Gedanke dahinter. Manchmal eine Kampagne. Manchmal ein einziger Satz.</p>
             <div class="ls-tags"><span>Kampagnen</span><span>Konzept</span><span>Naming</span></div>
           </div>
-          <span class="ls-arrow">→</span>
         </div>
 
         <div class="ls-step reveal" style="--d:240ms">
-          <span class="ls-n">03</span>
+          <div class="ls-ring-col">
+            <div class="ls-ring"><span>03</span></div>
+          </div>
           <div class="ls-body">
             <span class="ls-verb">Machen.</span>
             <p class="ls-text">Vom Gedanken zum fertigen Stück. Logo, Kampagne, Print, Digital. Allein oder mit den richtigen Partnern.</p>
             <div class="ls-tags"><span>Art Direction</span><span>Film</span><span>Print</span><span>Digital</span></div>
           </div>
-          <span class="ls-arrow">→</span>
         </div>
 
       </div>
